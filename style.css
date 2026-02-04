@@ -4,7 +4,15 @@ html, body {
   width: 100%;         /* Ensure body doesn't exceed viewport width */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; /* Modern, clean font */
   scroll-behavior: smooth;
-  background: #000;    /* Fallback for background */
+  background: #ffffff;    /* Fallback for background */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* prevents horizontal scroll */
 }
 
 /* ================= NAVBAR ================= */
@@ -14,7 +22,7 @@ html, body {
   justify-content: space-between;
   height: 100px;
   padding: 0 30px;
-  background: rgba(0,0,0,0.85); /* Slight transparency for modern feel */
+  background: rgba(0, 0, 0, 0.85); /* Slight transparency for modern feel */
   position: fixed;
   top: 0;
   left: 0;
