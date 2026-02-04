@@ -267,7 +267,7 @@ html, body {
   /* COMPANY NAME */
   .company-container {
     z-index: 3;
-    transform: translateX(-20px); /* adjust this value */
+    transform: translateX(-25px); /* adjust this value */
   }
   
 /* VISUAL in black top half */
@@ -318,15 +318,15 @@ html, body {
     width: 80%;
     max-width: 1620px; /* keeps desktop max width */
     aspect-ratio: 1620 / 350; /* maintains original ratio */
-    border: 2px solid white;
+    border: 3px solid white;
   }
 
   .gallery-track {
-    gap: 4%; /* relative gap instead of px */
+    gap: 2%; /* relative gap instead of px */
   }
 
   .slide {
-    width: 70%;
+    width: 80%;
     height: 100%;
   }
 }
