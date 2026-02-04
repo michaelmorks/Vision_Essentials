@@ -1,0 +1,321 @@
+/* ================= GLOBAL IMPROVEMENTS ================= */
+html, body {
+  overflow-x: hidden;  /* Prevent horizontal scrolling */
+  width: 100%;         /* Ensure body doesn't exceed viewport width */
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; /* Modern, clean font */
+  scroll-behavior: smooth;
+  background: #000;    /* Fallback for background */
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0 30px;
+  background: rgba(0,0,0,0.85); /* Slight transparency for modern feel */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(8px);   /* Modern glass effect */
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5); /* softer shadow */
+  box-sizing: border-box;
+}
+
+/* ================= LOGO ================= */
+.nav-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 70%;
+  object-fit: cover;
+  cursor: pointer;
+  background: rgba(128, 0, 255, 0.08);
+  border: 2px solid rgba(138, 0, 251, 0.25);
+  padding: 6px;
+  box-shadow: 0 0 15px rgba(173, 66, 255, 0.15), 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-logo img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(205, 126, 254, 0.35), 0 8px 30px rgba(112, 0, 249, 0.7);
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  width: 28px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  background: white;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger:hover span {
+  background: #7400f8;
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown-menu {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 180px;
+  background: #111;
+  border-radius: 12px;
+  padding: 10px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 999;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #7700ff;
+  color: white;
+}
+
+/* ================= HERO SECTION ================= */
+
+/* HERO */
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* BLACK TOP SECTION (~60% height) */
+.hero-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;  /* extended black */
+  background: #000;
+  z-index: 1;
+}
+
+/* WHITE BOTTOM SECTION (~40% height) */
+.hero-white {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%; /* smaller white bottom */
+  background: #f5f5f5;
+  z-index: 1;
+}
+
+/* COMPANY NAME CONTAINER */
+.company-container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* VISUAL (purple, top black section) */
+.company-container .visual {
+  color: #6a00f5; 
+  font-size: 64px;
+  font-weight: 800;
+  position: relative;
+  top: 160px; /* slightly up in black */
+  text-align: center;
+}
+
+/* ESSENTIALS (black, bottom white section) */
+.company-container .essentials {
+  color: #000; 
+  font-size: 64px;
+  font-weight: 800;
+  position: relative;
+  top: 150px;  /* slightly lower to sit in white */
+  text-align: center;
+}
+
+  /* DESCRIPTION */
+  .hero-desc {
+    font-size: 14px;
+    margin-top: 20px;
+    transform: translateY(135px);
+    padding: 0 5px;
+  }
+
+  /* BUTTONS */
+  .hero-buttons {
+    flex-direction: column;
+    margin-top: 20px; 
+    transform: translateY(120px);
+  }
+
+.hero-btn {
+  padding: 14px 32px;
+  background: #000;
+  color: white;
+  border: 2px solid #6a00f5;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #6a00f5;
+  transform: scale(1.05);
+}
+
+/* SLIDESHOW */
+.slideshow {
+  position: absolute;
+  top: 140px; /* gap from navbar */
+  right: 30px;
+  width: 1620px;
+  height: 350px;
+  border: 3px solid #ffffff; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 4;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* Track that moves */
+.gallery-track {
+  display: flex;
+  gap: 25px;
+}
+
+/* Images */
+.slide {
+  height: 100%;
+  width: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.slide:hover {
+  transform: scale(1.05);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  /* HERO */
+  .hero {
+    height: 100vh;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  /* BLACK/WHITE SPLIT 50/50 */
+  .hero-black { 
+    height: 50%; 
+  }
+  .hero-white { 
+    height: 50%; 
+  }
+
+  /* COMPANY NAME */
+  .company-container {
+    z-index: 3;
+  }
+
+  /* VISUAL in black top half */
+  .company-container .visual {
+    font-size: 36px;
+    top: 105px;      /* place in top black section */
+    left: 0;
+    text-align: center;
+    color: #6a00f5;
+  }
+
+  /* ESSENTIALS in white bottom half */
+  .company-container .essentials {
+    font-size: 36px;
+    top: 0;
+    margin-top: 100px; /* slight adjustment so it sits in white */
+    text-align: center;
+    color: #000;
+  }
+
+  /* DESCRIPTION */
+  .hero-desc {
+    font-size: 14px;
+    margin-top: 20px;
+    transform: translateY(-10px);
+  }
+
+  /* BUTTONS */
+  .hero-buttons {
+    flex-direction: column;
+    margin-top: 15px; 
+    gap: 12px;
+    transform: translateY(-25px);
+  }
+
+  .hero-btn {
+    font-size: 14px;
+    padding: 12px 20px;
+    width: 100%;
+  }
+
+  /* SLIDESHOW */
+  .slideshow {
+    top: 140px; 
+    right: 53%;
+    transform: translateX(50%);
+    width: 90%;       
+    height: 220px;    
+    border: 2px solid white;
+  }
+
+  .gallery-track {
+    gap: 15px;
+  }
+
+  .slide {
+    width: 70%;
+    height: 100%;
+  }
+}
