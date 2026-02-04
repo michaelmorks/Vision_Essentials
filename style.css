@@ -253,7 +253,7 @@ html, body {
   .hero {
     height: 100vh;
     flex-direction: column;
-    padding: 0 10px;
+    padding: 0 5%; /* responsive horizontal padding */
   }
 
   /* BLACK/WHITE SPLIT 50/50 */
@@ -271,8 +271,8 @@ html, body {
 
   /* VISUAL in black top half */
   .company-container .visual {
-    font-size: 36px;
-    top: 105px;      /* place in top black section */
+    font-size: clamp(24px, 8vw, 36px); /* scales between 24px and 36px */
+    top: 28%;      /* scales with screen height */
     left: 0;
     text-align: center;
     color: #6a00f5;
@@ -280,50 +280,51 @@ html, body {
 
   /* ESSENTIALS in white bottom half */
   .company-container .essentials {
-    font-size: 36px;
-    top: 3px;
-    margin-top: 100px; /* slight adjustment so it sits in white */
+    font-size: clamp(24px, 8vw, 36px);
+    top: 15%; 
+    margin-top: 10%; /* relative spacing */
     text-align: center;
     color: #000;
   }
 
   /* DESCRIPTION */
   .hero-desc {
-    font-size: 14px;
-    margin-top: 20px;
-    transform: translateY(-10px);
+    font-size: clamp(12px, 3vw, 14px);
+    margin-top: 2%;
+    transform: translateY(150%);
   }
 
   /* BUTTONS */
   .hero-buttons {
     flex-direction: column;
-    margin-top: 15px; 
+    margin-top: 3%; 
     gap: 12px;
-    transform: translateY(-25px);
+    transform: translateY(30%);
   }
 
   .hero-btn {
-    font-size: 14px;
-    padding: 12px 20px;
+    font-size: clamp(12px, 3vw, 14px);
+    padding: 10px 16px;
     width: 100%;
   }
 
   /* SLIDESHOW */
   .slideshow {
-    top: 140px; 
-    right: 52%;
+    top: 30%; /* relative to screen height */
+    right: 55%;
     transform: translateX(50%);
-    width: 90%;       
-    height: 220px;    
+    width: 85%;       
+    max-width: 1620px; /* keeps desktop max width */
+    aspect-ratio: 1620 / 350; /* maintains original ratio */
     border: 2px solid white;
   }
 
   .gallery-track {
-    gap: 15px;
+    gap: 3%; /* relative gap instead of px */
   }
 
   .slide {
-    width: 70%;
+    width: 60%;
     height: 100%;
   }
 }
