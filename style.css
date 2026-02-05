@@ -160,40 +160,54 @@ html, body {
   letter-spacing: 1px;
 }
 
-/* VISUAL (purple, top black section) */
 .company-container .visual {
   color: #6a00f5; 
-  font-size: clamp(32px, 6vw, 64px); /* min 32px, ideal 6% of viewport width, max 64px */
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 800;
   position: relative;
-  top: 17vh; /* scales slightly with screen height */
+  top: 17vh;
   text-align: center;
+
+  animation: slideFromLeft 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ESSENTIALS (black, bottom white section) */
+
 .company-container .essentials {
   color: #000; 
-  font-size: clamp(32px, 6vw, 64px); /* min 32px, ideal 6% of viewport width, max 64px */
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 800;
   position: relative;
-  top: 15.9vh; /* scales slightly with screen height */
+  top: 15.9vh;
   text-align: center;
+
+  animation: slideFromRight 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
-  /* DESCRIPTION */
-  .hero-desc {
-    font-size: 14px;
-    margin-top: 20px;
-    transform: translateY(135px);
-    padding: 0 5px;
-  }
 
-  /* BUTTONS */
-  .hero-buttons {
-    flex-direction: column;
-    margin-top: 20px; 
-    transform: translateY(120px);
-  }
+.hero-desc {
+  font-size: 14px;
+  margin-top: 20px;
+  transform: translateY(135px);
+  padding: 0 5px;
+
+  animation: slideFromBottomDesc 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+
+.hero-buttons {
+  flex-direction: column;
+  margin-top: 20px; 
+  transform: translateY(120px);
+
+  animation: slideFromBottomButtons 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
 
 .hero-btn {
   padding: 14px 32px;
@@ -213,11 +227,11 @@ html, body {
 
 .slideshow {
   position: absolute;
-  top: 20%; /* gap from navbar scales with screen height */
-  right: 5%; /* small gap from right edge */
-  width: 90%; /* fills 90% of viewport width */
-  max-width: 1620px; /* never exceeds original desktop width */
-  aspect-ratio: 1620 / 350; /* keeps the same width-to-height ratio */
+  top: 20%;
+  right: 5%;
+  width: 90%;
+  max-width: 1620px;
+  aspect-ratio: 1620 / 350;
   border: 3px solid #ffffff; 
   overflow: hidden;
   display: flex;
@@ -225,7 +239,11 @@ html, body {
   z-index: 4;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+
+  animation: slideFromTop 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
 }
+
 
 /* Track that moves */
 .gallery-track {
@@ -288,19 +306,25 @@ html, body {
   color: #000;
 }
 
-/* DESCRIPTION */
 .hero-desc {
   font-size: clamp(12px, 3vw, 14px);
   margin-top: 2%;
-  transform: translateY(150%);
+  transform: translateY(100%);
+
+  animation: slideFromBottomDescMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
 }
 
-/* BUTTONS */
 .hero-buttons {
   flex-direction: column;
   margin-top: 3%;
   gap: 12px;
-  transform: translateY(30%);
+  transform: translateY(50%);
+
+  animation: slideFromBottomButtonsMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
 }
 
 .hero-btn {
@@ -313,7 +337,7 @@ html, body {
   /* SLIDESHOW */
   .slideshow {
     top: 30%; /* relative to screen height */
-    right: 55%;
+    right: 14%;
     transform: translateX(50%);
     width: 80%;
     max-width: 1620px; /* keeps desktop max width */
@@ -330,3 +354,85 @@ html, body {
     height: 100%;
   }
 }
+
+/* ===== SAFE PAGE LOAD ANIMATIONS ===== */
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Matches hero-desc final translateY */
+@keyframes slideFromBottomDesc {
+  0% {
+    opacity: 0;
+    transform: translateY(260px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(135px);
+  }
+}
+
+/* Matches hero-buttons final translateY */
+@keyframes slideFromBottomButtons {
+  0% {
+    opacity: 0;
+    transform: translateY(240px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(120px);
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFromBottomDescMobile {
+  0% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(170%);
+  }
+}
+
+@keyframes slideFromBottomButtonsMobile {
+  0% {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(50%);
+  }
+}
+
