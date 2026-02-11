@@ -44,3 +44,25 @@ window.addEventListener("load", () => {
   autoScroll();
   });
   ////-------------------
+
+
+
+  /* Show loader when page is loading */
+window.addEventListener("load", () => {
+
+  const loader = document.getElementById("loader");
+
+  // Small delay so animation is visible (optional)
+  setTimeout(() => {
+    document.querySelector(".ball").style.animation = "none";
+loader.classList.add("hidden");    
+  }, 600);
+
+});
+
+
+/* Show loader again when user navigates away */
+window.addEventListener("beforeunload", () => {
+  document.getElementById("loader").classList.remove("hidden");
+});
+////-------------------
