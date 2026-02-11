@@ -276,10 +276,10 @@ html, body {
 
   /* BLACK/WHITE SPLIT 50/50 */
   .hero-black { 
-    height: 50%; 
+    height: 60%; 
   }
   .hero-white { 
-    height: 50%; 
+    height: 40%; 
   }
 
   /* COMPANY NAME */
@@ -291,7 +291,7 @@ html, body {
 /* VISUAL in black top half */
 .company-container .visual {
   font-size: clamp(24px, 8vw, 36px); /* scales between 24px and 36px */
-  top: 28%; /* scales with screen height */
+  top: 62%; /* scales with screen height */
   left: 0;
   text-align: center;
   color: #6a00f5;
@@ -300,7 +300,7 @@ html, body {
 /* ESSENTIALS in white bottom half */
 .company-container .essentials {
   font-size: clamp(24px, 8vw, 36px);
-  top: 15%;
+  top: 55%;
   margin-top: 10%; /* relative spacing */
   text-align: center;
   color: #000;
@@ -308,8 +308,8 @@ html, body {
 
 .hero-desc {
   font-size: clamp(12px, 3vw, 14px);
-  margin-top: 2%;
-  transform: translateY(100%);
+  margin-top: 85%;
+  transform: translateY(0%);
 
   animation: slideFromBottomDescMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.4s;
@@ -320,7 +320,7 @@ html, body {
   flex-direction: column;
   margin-top: 3%;
   gap: 12px;
-  transform: translateY(50%);
+  transform: translateY(100%);
 
   animation: slideFromBottomButtonsMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.6s;
@@ -336,7 +336,7 @@ html, body {
 
   /* SLIDESHOW */
   .slideshow {
-    top: 30%; /* relative to screen height */
+    top: 20%; /* relative to screen height */
     right: 14%;
     transform: translateX(50%);
     width: 80%;
