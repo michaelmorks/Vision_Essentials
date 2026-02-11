@@ -354,10 +354,10 @@ html, body {
 
   /* BLACK/WHITE SPLIT 50/50 */
   .hero-black { 
-    height: 60%; 
+    height: 50%; 
   }
   .hero-white { 
-    height: 40%; 
+    height: 50%; 
   }
 
   /* COMPANY NAME */
@@ -369,7 +369,7 @@ html, body {
 /* VISUAL in black top half */
 .company-container .visual {
   font-size: clamp(24px, 8vw, 36px); /* scales between 24px and 36px */
-  top: 63%; /* scales with screen height */
+  top: 31%; /* scales with screen height */
   left: 0;
   text-align: center;
   color: #6a00f5;
@@ -378,7 +378,7 @@ html, body {
 /* ESSENTIALS in white bottom half */
 .company-container .essentials {
   font-size: clamp(24px, 8vw, 36px);
-  top: 56%;
+  top: 20%;
   margin-top: 10%; /* relative spacing */
   text-align: center;
   color: #000;
@@ -386,8 +386,8 @@ html, body {
 
 .hero-desc {
   font-size: clamp(12px, 3vw, 14px);
-  margin-top: 75%;
-  transform: translateY(0%);
+  margin-top: 10%;
+  transform: translateY(100%);
 
   animation: slideFromBottomDescMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.4s;
@@ -414,7 +414,7 @@ html, body {
 
   /* SLIDESHOW */
   .slideshow {
-    top: 20%; /* relative to screen height */
+    top: 25%; /* relative to screen height */
     right: 14%;
     transform: translateX(50%);
     width: 80%;
