@@ -1,68 +1,30 @@
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
 
-//dropdown meanu
-const hamburger = document.querySelector(".hamburger");
-const dropdown = document.getElementById("dropdownMenu");
+function getIndex(offset) {
+  return (current + offset + total) % total;
+}
 
-hamburger.addEventListener("click", (e) => {
-  e.stopPropagation();
-  dropdown.classList.toggle("active");
-});
+function update() {
+  slides.forEach(s => s.className = s.className.replace(/\b(active|next|prev|hidden)\b/g, '').trim());
+  slides[getIndex(0)].classList.add('active');
+  slides[getIndex(1)].classList.add('next');
+  slides[getIndex(-1)].classList.add('prev');
+  for (let i = 2; i < total - 1; i++) slides[getIndex(i)].classList.add('hidden');
+}
 
-document.addEventListener("click", () => {
-  dropdown.classList.remove("active");
-});
-////////////////-------------
+setInterval(() => { current = getIndex(1); update(); }, 3000);
 
 
-// Auto silder
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const track = document.querySelector(".gallery-track");
-  const slides = Array.from(track.children);
-  
-  // Duplicate slides for infinite loop
-  slides.forEach(slide => {
-    const clone = slide.cloneNode(true);
-    track.appendChild(clone);
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".dropdown-menu");
+
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
   });
-  
-  let scrollPos = 0;
-  let speed = 1.3;
-  
-  function autoScroll() {
-    scrollPos += speed;
-    track.style.transform = `translateX(${-scrollPos}px)`;
-  
-    // Reset smoothly when half reached
-    if (scrollPos >= track.scrollWidth / 2) {
-      scrollPos = 0;
-    }
-  
-    requestAnimationFrame(autoScroll);
-  }
-  
-  autoScroll();
-  });
-  ////-------------------
-
-
-
-  /* Show loader when page is loading */
-window.addEventListener("load", () => {
-
-  const loader = document.getElementById("loader");
-
-  // Small delay so animation is visible (optional)
-  setTimeout(() => {
-    document.querySelector(".ball").style.animation = "none";
-loader.classList.add("hidden");    
-  }, 600);
 
 });
-
-
-/* Show loader again when user navigates away */
-window.addEventListener("beforeunload", () => {
-  document.getElementById("loader").classList.remove("hidden");
-});
-////-------------------

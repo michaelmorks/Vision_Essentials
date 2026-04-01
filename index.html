@@ -9,87 +9,148 @@
 
 <body>
 
-  <!-- ===== LOADER ===== -->
-<div class="loader" id="loader">
-  <div class="ball"></div>
-  <div class="shadow"></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+
+  <!-- LEFT: Hamburger -->
+  <div class="nav-left">
+    <div class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- CENTER (optional title) -->
+  <div class="nav-center">
+    <h3><strong>BRINGING YOUR VISIONS TO LIFE</strong></h3>
+  </div>
+
+  <!-- RIGHT (empty or future icons) -->
+  <div class="nav-right"></div>
+
+</nav>
+
+<!-- DROPDOWN (LEFT SIDE) -->
+<div class="dropdown-menu" id="dropdownMenu">
+  <a href="#me">Home</a>
+  <a href="#about">About</a>
+  <a href="#profile">Profile</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
 </div>
 
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
 
-    <!-- LOGO -->
-    <div class="nav-logo">
-      <img src="navbar/Logo.png" alt="Nav Bar Logo" onclick="location.reload()">
-    </div>
 
-    <div class="nav-center"></div>
+<section class="hero">
 
-    <!-- RIGHT -->
-    <div class="nav-right">
-      <div class="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-  </nav>
-
-  <!-- SMALL RIGHT DROPDOWN -->
-  <div class="dropdown-menu" id="dropdownMenu">
-    <a href="#me">Home</a>
-    <a href="#about">About</a>
-    <a href="#profile">Profile</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+  <div class="hero-slides">
+    <div class="slide active" style="background-image:url('Screenshot\ 2026-04-01\ at\ 3.19.03\ pm.png')"></div>
+    <div class="slide" style="background-image:url('Screenshot\ 2026-04-01\ at\ 3.19.03\ pm.png')"></div>
+    <div class="slide" style="background-image:url('Screenshot\ 2026-04-01\ at\ 3.19.03\ pm.png')"></div>
   </div>
 
+  <!-- TEXT UNDER SLIDESHOW -->
+  <div class="hero-text">
+    <h1><span class="pruple">VISION</span><br> ESSENTIALS</h1>
+    <p>BRINGING YOUR VISIONS TO LIFE</p>
+    <button class="hero-btn">Discover Your Vision</button>
+  </div>
+
+</section>
 
 
-    <!-- ================= HERO SECTION ================= -->
 
-  <section class="hero">
 
-    <!-- BLACK SECTION -->
-    <div class="hero-black">
-  
-      <div class="slideshow">
-        <div class="gallery-track">
-      
-          <img src="https://picsum.photos/800/500?1" class="slide">
-          <img src="https://picsum.photos/800/500?2" class="slide">
-          <img src="https://picsum.photos/800/500?3" class="slide">
-          <img src="https://picsum.photos/800/500?4" class="slide">
-          <img src="https://picsum.photos/800/500?5" class="slide">
-      
-        </div>
-      </div>
-      
-      
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <h1>Let’s Get Started</h1>
+  <p>Give us a few details about what you need and we’ll respond shortly.</p>
+
+  <!-- FORM -->
+  <form action="https://formspree.io/f/YOUR_ID" method="POST">
+
+    <input type="text" name="Full Name" placeholder="Full name" required>
+
+    <input type="text" name="Company Name" placeholder="Company name" required>
+
+    <input type="email" name="Email" placeholder="Email" required>
+
+    <input type="tel" name="Phone Number" placeholder="Phone number" required>
+    <!-- Message -->
+    <textarea name="Message" placeholder="Briefly tell us what you're looking for." required></textarea>
+
+    <!-- Button -->
+    <button type="submit">Lets Begin</button>
+
+    <input type="hidden" name="_next" value="thankyou.html">
+
+  </form>
+
+</div>
+
+
+
+
+
+ <!-- ================= FOOTER ================= -->
+ <footer class="footer-section">
+  <div class="footer-container">
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <a href="#">-</a>
+      <a href="#">-</a>
+      <a href="#">-</a>
     </div>
-  
-    <!-- WHITE SECTION -->
-    <div class="hero-white"></div>
-  
-    <!-- COMPANY NAME + DESCRIPTION + BUTTON -->
-    <div class="company-container">
-      <span class="visual">VISION</span>
-      <span class="essentials">ESSENTIALS</span>
-  
-      <!-- DESCRIPTION -->
-      <p class="hero-desc">
-        writning here.
-      </p>
-  
-      <!-- BUTTONS -->
-      <div class="hero-buttons">
-        <button class="hero-btn">Discover More</button>
-      </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p><a href="mailto:">Email Here</a></p>
     </div>
-  
-  </section>
+
+    <!-- Social Links -->
+    <div class="footer-social">
+
+      <h3>Follow Us</h3>
+      <a class="social-link" href="https://www.instagram.com/terra_rewilding" target="_blank" rel="noopener">
+        <img src="footer-imgs/Insta-removebg-preview.png" alt="Instagram" class="social-icon-img">
+        <span>Instagram</span>
+      </a>
+
+      <a class="social-link" href="https://www.facebook.com/dineth.wijendra.3" target="_blank" rel="noopener">
+        <img src="footer-imgs/facebook.png" alt="Facebook" class="social-icon-img">
+        <span>Facebook</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom Copyright -->
+  <div class="footer-bottom">
+    <p class="rights">© 2026 Vision Essentials. All Rights Reserved.</p>
+    <div class="morks-wrapper">
+      <p class="footer-Morks">Powered By Morks</p>
+      <img class="Morkslogo" src="footer-imgs/Transparent_mainLogo.png" alt="Morks">
+    </div>
+  </div>
+
+</footer>
+<!-- ================= END FOOTER ================= -->
+
 
   
 
