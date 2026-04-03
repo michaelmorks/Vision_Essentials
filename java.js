@@ -54,3 +54,113 @@ form.addEventListener("submit", async function(e) {
     alert("Something went wrong. Please try again.");
   }
 });
+
+
+
+/* SERVCIES */
+
+const cards = document.querySelectorAll(".card");
+const title = document.getElementById("env-title");
+const desc = document.getElementById("env-desc");
+const video = document.getElementById("env-video");
+
+/* DATA FOR EACH TAB */
+const contentData = {
+  video: {
+    title: "Video Production",
+    desc: "High-quality video production that tells your brand story, captures attention, and drives engagement.",
+    video: "videos/video-production.mp4"
+  },
+  Social: {
+    title: "Social Media Content",
+    desc: "Scroll-stopping content designed to grow your audience and increase engagement across platforms.",
+    video: "videos/social.mp4"
+  },
+  events: {
+    title: "Events",
+    desc: "Professional event coverage capturing every key moment with cinematic quality.",
+    video: "videos/events.mp4"
+  },
+  business: {
+    title: "Business Content",
+    desc: "Corporate and promotional videos that build trust and showcase your business professionally.",
+    video: "videos/business.mp4"
+  },
+  branding: {
+    title: "Branding",
+    desc: "Creative visuals that define your brand identity and help you stand out in the market.",
+    video: "videos/branding.mp4"
+  }
+};
+
+/* FUNCTION TO UPDATE CONTENT */
+function updateContent(key) {
+  const data = contentData[key];
+
+  title.textContent = data.title;
+  desc.textContent = data.desc;
+  video.src = data.video;
+}
+
+/* CLICK EVENTS */
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+
+    // remove active
+    cards.forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+
+    // update content
+    const key = card.getAttribute("data-env");
+    updateContent(key);
+  });
+});
+
+/* LOAD DEFAULT */
+updateContent("video");
+
+/* END OF SERVCIES */
+
+
+/* FADE EFFECT */
+const sections = document.querySelectorAll(".section-fade");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      // small delay so user actually sees it
+      setTimeout(() => {
+        entry.target.classList.add("show");
+      }, 150);
+
+    }
+  });
+}, {
+  threshold: 0.25, // waits until 25% of section is visible
+  rootMargin: "0px 0px -100px 0px" // triggers slightly later (KEY FIX)
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+/* END OF FADE EFFECT */
+
+
+/* SRCOLL EFFECT */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute("href"));
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+/* END OF SRCOLL EFFECT */
