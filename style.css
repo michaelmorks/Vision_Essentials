@@ -118,10 +118,6 @@ button {
   transition: 0.3s;
 }
 
-.hamburger:hover span {
-  background: #6000b5;
-}
-
 
 /* X animation */
 .hamburger.active span:nth-child(1) {
@@ -417,7 +413,7 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 /* ================= FOOTER ================= */
 .footer-section {
   width: 100%;
-  background: linear-gradient(135deg, #a3a3a3, #585858);
+  background: linear-gradient(135deg, #a3a3a3, #000000);
   color: #ffffff;
   padding: 80px 20px 40px;
   position: relative;
@@ -523,7 +519,7 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 .footer-bottom p,
 .rights {
   margin: 2px 0;
-  line-height: 1.5;
+  line-height: 1.9;
 }
 
 .rights {
@@ -535,7 +531,7 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
   margin-top: 0px;
   padding-bottom: 0px;
 }
@@ -546,7 +542,7 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .Morkslogo {
-  width: 30px;
+  width: 28px;
   height: auto;
 }
 
