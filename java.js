@@ -28,3 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+
+
+const form = document.getElementById("contact-form");
+const successMessage = document.getElementById("success-message");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (response.ok) {
+    form.reset();
+    successMessage.style.display = "block";
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+});

@@ -77,25 +77,22 @@
   <h1>Let’s Get Started</h1>
   <p>Give us a few details about what you need and we’ll respond shortly.</p>
 
-  <!-- FORM -->
-  <form action="https://formspree.io/f/mlgowyjn" method="POST">
+  <form id="contact-form" action="https://formspree.io/f/mlgowyjn" method="POST">
 
     <input type="text" name="Full Name" placeholder="Full name" required>
-
     <input type="text" name="Company Name" placeholder="Company name" required>
-
     <input type="email" name="Email" placeholder="Email" required>
-
     <input type="tel" name="Phone Number" placeholder="Phone number" required>
-    <!-- Message -->
+  
     <textarea name="Message" placeholder="Briefly tell us what you're looking for." required></textarea>
-
-    <!-- Button -->
+  
     <button type="submit">Lets Begin</button>
-
-    <input type="hidden" name="_next" value="thankyou.html">
-
+  
   </form>
+  
+  <p id="success-message" style="display:none; margin-top:15px; color:green;">
+    Thanks! We'll be in touch shortly.
+  </p>
 
 </div>
 
