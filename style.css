@@ -275,23 +275,25 @@ button {
   }
 
   /* text */
-  @media (max-width: 768px) {
+  .loader-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .loader-text {
-      font-size: 22px;
-      bottom: 48%;
-      gap: 8px;
-      letter-spacing: 4px;
-      text-align: center;
-      width: 100%;
-      padding: 0 20px;
-    }
-  
-    .left-text,
-    .right-text {
-      letter-spacing: 6px;
-    }
+    font-size: 22px;
+    gap: 8px;
+    letter-spacing: 4px;
+    width: 100%;
+    padding: 0 20px;
   }
+
+  .left-text, .right-text { letter-spacing: 6px; }
 
   /* DOTS ONLY ON MOBILE */
   .loader-dots {
