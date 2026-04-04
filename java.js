@@ -36,35 +36,36 @@ document.addEventListener("DOMContentLoaded", function () {
 const form = document.getElementById("contact-form");
 const successMessage = document.getElementById("success-message");
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault(); // stop default redirect
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
   const formData = new FormData(form);
 
-  fetch(form.action, {
-    method: "POST",
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
     if (response.ok) {
-
-      // show success message
-      successMessage.style.display = "block";
-
-      // reset form
+      
+      // ✅ reset form first
       form.reset();
 
-      // 🎉 CONFETTI BURST
+      // ✅ show success message
+      successMessage.style.display = "block";
+
+      // 🎉 CONFETTI BURST 1
       confetti({
         particleCount: 150,
         spread: 100,
         origin: { y: 0.6 }
       });
 
-      // optional: second burst for nicer effect
+      // 🎉 CONFETTI BURST 2 (delayed)
       setTimeout(() => {
         confetti({
           particleCount: 100,
@@ -73,16 +74,21 @@ form.addEventListener("submit", function(e) {
         });
       }, 300);
 
+      // 📳 VIBRATION (mobile only)
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]);
+      }
+
     } else {
       alert("Something went wrong. Please try again.");
     }
-  })
-  .catch(() => {
-    alert("Submission failed. Please check your connection.");
-  });
-});
 
+  } catch (error) {
+    alert("Submission failed. Please check your connection.");
+  }
+});
 /* END OF FORMSPREE CODE */
+
 
 
 
