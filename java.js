@@ -30,30 +30,62 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+/* FORMSPREE CODE */
+
 
 const form = document.getElementById("contact-form");
 const successMessage = document.getElementById("success-message");
 
-form.addEventListener("submit", async function(e) {
-  e.preventDefault();
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); // stop default redirect
 
-  const data = new FormData(form);
+  const formData = new FormData(form);
 
-  const response = await fetch(form.action, {
+  fetch(form.action, {
     method: "POST",
-    body: data,
+    body: formData,
     headers: {
       'Accept': 'application/json'
     }
-  });
+  })
+  .then(response => {
+    if (response.ok) {
 
-  if (response.ok) {
-    form.reset();
-    successMessage.style.display = "block";
-  } else {
-    alert("Something went wrong. Please try again.");
-  }
+      // show success message
+      successMessage.style.display = "block";
+
+      // reset form
+      form.reset();
+
+      // 🎉 CONFETTI BURST
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      // optional: second burst for nicer effect
+      setTimeout(() => {
+        confetti({
+          particleCount: 100,
+          spread: 120,
+          origin: { y: 0.5 }
+        });
+      }, 300);
+
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  })
+  .catch(() => {
+    alert("Submission failed. Please check your connection.");
+  });
 });
+
+/* END OF FORMSPREE CODE */
+
+
+
 
 
 
@@ -122,6 +154,8 @@ updateContent("video");
 /* END OF SERVCIES */
 
 
+
+
 /* FADE EFFECT */
 const sections = document.querySelectorAll(".section-fade");
 
@@ -148,6 +182,7 @@ sections.forEach(section => {
 /* END OF FADE EFFECT */
 
 
+
 /* SRCOLL EFFECT */
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -164,3 +199,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* END OF SRCOLL EFFECT */
+
+
+/* LOADING SCREEN EFFECT */
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const video = document.getElementById("loader-video");
+
+  // when video ends → remove loader
+  video.addEventListener("ended", () => {
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 800);
+  });
+
+  // fallback (in case video is short or doesn't trigger)
+  setTimeout(() => {
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 800);
+  }, 4000); // adjust to your video length
+});
+
+/* END OF LOADING SCREEN EFFECT */

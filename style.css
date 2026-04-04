@@ -117,6 +117,116 @@ button {
 
 /* ================= END OF FADE EFFECT ================= */
 
+/* =================LOADING SCREEN EFFECT ================= */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* VIDEO */
+#loader video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXT OVERLAY */
+.loader-text {
+  position: absolute;
+  bottom: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 15px;
+
+  color: white;
+  font-size: 50px;
+font-weight: bold;  
+letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+/* FADE OUT */
+#loader.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.left-text {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-120px);
+  animation: slideLeft 1s ease forwards;
+  color: #7a5cff;
+}
+
+.right-text {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(120px);
+  animation: slideRight 1s ease forwards;
+}
+
+/* animations */
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) { 
+  #loader video { 
+    object-fit: contain; /* shows full video */ 
+    background: black; /* fills empty space */ 
+
+    height: 200%; width: 80%; transform: scale(1.2); /* makes it taller */ 
+  } 
+
+  .loader-text  { 
+    font-size: 26px; 
+    bottom: 70%; 
+    letter-spacing: 3px; 
+   } }
+
+@media (max-width: 768px) {
+  .loader-text {
+    font-size: 26px;
+    bottom: 40%;
+    gap: 10px;
+  }
+
+  .left-text {
+    transform: translateX(-80px);
+  }
+
+  .right-text {
+    transform: translateX(80px);
+  }
+}
+
+/* ================= END OF LOADING SCREEN EFFECT ================= */
+
+
 
 /* ================= NAVBAR ================= */
 .navbar {

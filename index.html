@@ -8,6 +8,21 @@
 </head>
 
 <body>
+<!-- ================= LOADING SCREEN ================= -->
+
+<div id="loader">
+
+  <video autoplay muted playsinline id="loader-video">
+    <source src="loading/loader.mp4" type="video/mp4">
+  </video>
+
+  <h1 class="loader-text">
+    <span class="left-text">VISION</span>
+    <span class="right-text">ESSENTIALS</span>
+  </h1>
+
+</div>
+<!-- ================= END OF LOADING SCREEN ================= -->
 
 
 <!-- ================= NAVBAR ================= -->
@@ -140,10 +155,10 @@
 
   <form id="contact-form" action="https://formspree.io/f/mlgowyjn" method="POST">
 
-    <input type="text" name="Full Name" placeholder="Full name" required>
-    <input type="text" name="Company Name" placeholder="Company name" required>
+    <input type="text" name="Full Name" placeholder="Full name" pattern="[A-Za-z\s]+" title="Only letters allowed" required>
+    <input type="text" name="Company Name" placeholder="Company name"  pattern="[A-Za-z0-9\s]+" title="Only letters and numbers allowed" required>
     <input type="email" name="Email" placeholder="Email" required>
-    <input type="tel" name="Phone Number" placeholder="Phone number" required>
+    <input type="tel" name="Phone Number" placeholder="Phone number" pattern="[0-9]+" title="Only numbers allowed" required>
   
     <textarea name="Message" placeholder="Briefly tell us what you're looking for." required></textarea>
   
@@ -220,7 +235,7 @@
 
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> 
   <script src="java.js" defer></script>
 </body>
 </html>
