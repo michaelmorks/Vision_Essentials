@@ -202,28 +202,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* LOADING SCREEN EFFECT */
-
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   const video = document.getElementById("loader-video");
 
-  // when video ends → remove loader
-  video.addEventListener("ended", () => {
+  let hasExited = false;
+
+  function hideLoader() {
+    if (hasExited) return;
+    hasExited = true;
+
     loader.classList.add("fade-out");
 
     setTimeout(() => {
       loader.style.display = "none";
     }, 800);
-  });
+  }
 
-  // fallback (in case video is short or doesn't trigger)
-  setTimeout(() => {
-    loader.classList.add("fade-out");
+  // only attach video event if it exists AND is visible (desktop)
+  if (video && window.innerWidth > 768) {
+    video.addEventListener("ended", hideLoader);
+  }
 
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 800);
-  }, 4000); // adjust to your video length
+  // fallback always
+  setTimeout(hideLoader, 4000);
 });
 
 /* END OF LOADING SCREEN EFFECT */

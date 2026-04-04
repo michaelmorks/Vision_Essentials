@@ -117,22 +117,32 @@ button {
 
 /* ================= END OF FADE EFFECT ================= */
 
-/* =================LOADING SCREEN EFFECT ================= */
+
+/* ================= LOADING SCREEN ================= */
+
 #loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: black;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   z-index: 9999;
+
+  opacity: 1;
+  transition: opacity 0.8s ease;
 }
 
-/* VIDEO */
+/* FADE OUT */
+#loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ================= MEDIA ================= */
+
+/* VIDEO (DESKTOP DEFAULT) */
 #loader video {
   position: absolute;
   width: 100%;
@@ -140,7 +150,17 @@ button {
   object-fit: cover;
 }
 
-/* TEXT OVERLAY */
+/* IMAGE (MOBILE FALLBACK) */
+#loader-image {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= CINEMATIC TEXT ================= */
+
 .loader-text {
   position: absolute;
   bottom: 55%;
@@ -148,83 +168,168 @@ button {
   transform: translateX(-50%);
 
   display: flex;
-  gap: 15px;
+  gap: 20px;
+
+  font-size: 56px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
 
   color: white;
-  font-size: 50px;
-font-weight: bold;  
-letter-spacing: 5px;
-  text-transform: uppercase;
+  text-shadow: 0 0 25px rgba(0,0,0,0.6);
+
+  animation: glow 3s ease-in-out infinite;
 }
 
-/* FADE OUT */
-#loader.fade-out {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  pointer-events: none;
+/* glow effect */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(122,92,255,0.15);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(122,92,255,0.35);
+  }
 }
 
-.left-text {
-  display: inline-block;
-  opacity: 0;
-  transform: translateX(-120px);
-  animation: slideLeft 1s ease forwards;
-  color: #7a5cff;
-}
+/* ================= SPLIT TEXT ================= */
 
+.left-text,
 .right-text {
   display: inline-block;
   opacity: 0;
-  transform: translateX(120px);
-  animation: slideRight 1s ease forwards;
+  filter: blur(12px);
+  letter-spacing: 18px;
 }
 
-/* animations */
-@keyframes slideLeft {
-  to {
+.left-text {
+  color: #7a5cff;
+  animation: cinematicLeft 1.4s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+.right-text {
+  animation: cinematicRight 1.4s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+/* LEFT */
+@keyframes cinematicLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-160px) translateY(20px) scale(1.1);
+    filter: blur(12px);
+    letter-spacing: 25px;
+  }
+
+  60% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+
+  100% {
     opacity: 1;
     transform: translateX(0);
+    filter: blur(0);
+    letter-spacing: 6px;
   }
 }
 
-@keyframes slideRight {
-  to {
+/* RIGHT */
+@keyframes cinematicRight {
+  0% {
+    opacity: 0;
+    transform: translateX(160px) translateY(20px) scale(1.1);
+    filter: blur(12px);
+    letter-spacing: 25px;
+  }
+
+  60% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+
+  100% {
     opacity: 1;
     transform: translateX(0);
+    filter: blur(0);
+    letter-spacing: 6px;
   }
 }
 
-@media (max-width: 768px) { 
-  #loader video { 
-    object-fit: contain; /* shows full video */ 
-    background: black; /* fills empty space */ 
+/* ================= DOTS (DEFAULT HIDDEN) ================= */
 
-    height: 200%; width: 80%; transform: scale(1.2); /* makes it taller */ 
-  } 
+.loader-dots {
+  display: none;
+}
 
-  .loader-text  { 
-    font-size: 26px; 
-    bottom: 70%; 
-    letter-spacing: 3px; 
-   } }
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
+
+  /* switch media */
+  #loader video {
+    display: none;
+  }
+
+  #loader-image {
+    display: block;
+  }
+
+  /* text */
   .loader-text {
-    font-size: 26px;
-    bottom: 40%;
-    gap: 10px;
+    font-size: 30px;
+    bottom: 45%;
+    gap: 12px;
+    letter-spacing: 6px;
   }
 
-  .left-text {
-    transform: translateX(-80px);
-  }
-
+  .left-text,
   .right-text {
-    transform: translateX(80px);
+    letter-spacing: 10px;
+  }
+
+  /* DOTS ONLY ON MOBILE */
+  .loader-dots {
+    display: flex;
+    position: absolute;
+    bottom: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 6px;
+  }
+
+  .loader-dots span {
+    width: 6px;
+    height: 6px;
+    background: #7a5cff;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: dotPulse 1.2s infinite ease-in-out;
+  }
+
+  .loader-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .loader-dots span:nth-child(3) {
+    animation-delay: 0.4s;
   }
 }
 
-/* ================= END OF LOADING SCREEN EFFECT ================= */
+/* DOT ANIMATION */
+@keyframes dotPulse {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+/* ================= END OF LOADING SCREEN ================= */
+
+
+
+
 
 
 

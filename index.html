@@ -9,17 +9,27 @@
 
 <body>
 <!-- ================= LOADING SCREEN ================= -->
-
 <div id="loader">
 
-  <video autoplay muted playsinline id="loader-video">
+  <!-- desktop video -->
+  <video id="loader-video" autoplay muted playsinline>
     <source src="loading/loader.mp4" type="video/mp4">
   </video>
+
+  <!-- mobile fallback image -->
+  <img id="loader-image" src="loading/phoneloader.png" alt="loader image">
+  
 
   <h1 class="loader-text">
     <span class="left-text">VISION</span>
     <span class="right-text">ESSENTIALS</span>
   </h1>
+
+  <div class="loader-dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
 </div>
 <!-- ================= END OF LOADING SCREEN ================= -->
