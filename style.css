@@ -15,12 +15,17 @@ html, body {
 }
 
 #home {
-  padding: 100px 20px;
+   min-height: 70vh; /* full screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #services {
   padding: 120px 20px;
 }
+
 
 /* ================= END OF GLOBAL FIXES ================= */
 
@@ -528,7 +533,7 @@ button {
 
 /* SMALLER SCREENS */
 @media (max-width: 768px) {
-  .hero { margin: 40px auto; padding-top: 200px; }
+  .hero { margin: 40px auto; padding-top: 50px; }
   .hero-slides { height: 35vh; }
   .slide { width: 72%; border-radius: 14px; }
   .slide.next { transform: translateX(88%) scale(0.88);  opacity: 0.6; filter: brightness(0.55); z-index: 2; }
@@ -562,14 +567,14 @@ button {
 /* Paragraph animation */
 
 .p-container {
-  max-width: 800px;     /* controls line length */
+  max-width: 900px;     /* controls line length */
   margin: 0 auto;       /* centers container */
   padding: 0 20px;      /* prevents edge touching on mobile */
   text-align: center;   /* centers text */
 }
 
 .p-container p {
-  color: #5f5f5f;
+  color: #000000;
   font-size: 25px;
   font-weight: 800;
   text-align: center;
