@@ -784,6 +784,8 @@ label {
     margin: 0 auto;       /* then centers that */
   }
 }
+
+* { outline: 1px solid red; }
 /* ================= END OF REVIEW SECTION ================= */
 
 
