@@ -763,19 +763,6 @@ label {
   .main-row {
     grid-template-columns: 1fr;
   }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding-right: 40px;
-
-    width: 100%;
-    max-width: 520px;   /* keeps it centered and prevents stretching */
-    margin: 0 auto;     /* centers the whole block */
-    justify-content: center;
-  }
-
   .stat-card {
     height: 300px;
     width: 100%;
@@ -784,6 +771,17 @@ label {
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0;
+    width: fit-content;   /* shrinks to actual content size */
+    margin: 0 auto;       /* then centers that */
   }
 }
 /* ================= END OF REVIEW SECTION ================= */
