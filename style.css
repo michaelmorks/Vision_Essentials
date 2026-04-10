@@ -759,13 +759,27 @@ label {
 }
 
 @media (max-width: 800px) {
+  .section {
+    padding: 60px 16px; /* reduce side padding on mobile */
+  }
 
   .main-row {
     grid-template-columns: 1fr;
-  }
-  .stat-card {
-    height: 300px;
     width: 100%;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;        /* fill the full column */
+    box-sizing: border-box;
+  }
+
+  .stat-card {
+    width: 100%;
+    height: auto;       /* let content decide height, not a fixed 300px */
+    min-height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -773,19 +787,6 @@ label {
     text-align: center;
   }
 }
-
-@media (max-width: 800px) {
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 0;
-    width: fit-content;   /* shrinks to actual content size */
-    margin: 0 auto;       /* then centers that */
-  }
-}
-
-* { outline: 1px solid red; }
 /* ================= END OF REVIEW SECTION ================= */
 
 
