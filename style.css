@@ -768,6 +768,7 @@ label {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    padding-right: 40px;
 
     width: 100%;
     max-width: 520px;   /* keeps it centered and prevents stretching */
@@ -776,7 +777,7 @@ label {
   }
 
   .stat-card {
-    height: 250px;
+    height: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
