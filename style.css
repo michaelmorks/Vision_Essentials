@@ -759,29 +759,31 @@ label {
 }
 
 @media (max-width: 800px) {
-  .main-row { grid-template-columns: 1fr; }
-  .stats { flex-direction: row; flex-wrap: wrap; }
-  .stat-card { flex: 1; min-width: 140px; }
-}
 
-@media (max-width: 800px) {
+  .main-row {
+    grid-template-columns: 1fr;
+  }
 
   .stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 2 per row */
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    width: 100%;
+    max-width: 520px;   /* keeps it centered and prevents stretching */
+    margin: 0 auto;     /* centers the whole block */
     justify-content: center;
   }
 
   .stat-card {
     height: 250px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
-
 }
 /* ================= END OF REVIEW SECTION ================= */
 
