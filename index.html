@@ -66,8 +66,10 @@
   <a href="#contact">Contact</a>
 </div>
 
+<!-- ================= END OF NAVBAR ================= -->
 
 
+<!-- ================= HERO PAGE ================= -->
 
 <section class="hero">
 
@@ -81,12 +83,16 @@
   <div class="hero-text">
     <h1><strong><span class="pruple">VISION</span><br> ESSENTIALS </strong> </h1>
     <strong><p>BRINGING YOUR VISIONS TO LIFE</p></strong>
-    <button class="hero-btn">Discover Your Vision</button>
+    <button class="hero-btn" onclick="location.href='#home'">Discover Your Vision</button>
   </div>
 
 </section>
 
+<!-- ================= END OF HERO PAGE ================= -->
 
+
+
+<!-- ================= HOME PAGE ================= -->
 
 <section id="home" class="section-fade">
 
@@ -103,6 +109,12 @@
   </div>
 </section>
 
+<!-- ================= END OF HERO PAGE ================= -->
+
+
+
+
+<!-- ================= SERVICES PAGE ================= -->
 
 <section id="services" class="section-fade">
 
@@ -139,6 +151,98 @@
   </div>
 
 </section> 
+
+
+<section class="section section-fade" id="review">
+  
+  <div class="section-header">
+    <h2><span class="pruple">Proven Results</span> That Speak</h2>
+    <p>Delivering Measurable Growth Through Structured Systems, Performance Marketing And Strategic Execution.</p>
+  </div>
+
+  <div class="main-row">
+
+    <!-- LEFT: STATS -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number"><span class="counter" data-target="2">0</span>+</div>
+        <h4>Years Experience</h4>
+        <p>Service Backed By Proven Experience And Reliability,</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
+        <h4>Service Focus</h4>
+        <p>We’re Devoted To Understanding And Fulfilling Each Client’s Unique Requirements.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><span class="counter" data-target="100">0</span>+</div>
+        <h4>Customer-Satisfaction</h4>
+        <p>Scaling Businesses Through Professional Storytelling And Video.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: REVIEWS -->
+    <div class="review-wrapper">
+      <button class="nav-btn" id="prev">&#8249;</button>
+      <div class="review-track">
+
+        <div class="review active">
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <p>------</p>
+            <h3>------</h3>
+            <span class="role">Company Name</span>
+            <div class="review-dots">
+              <div class="dot active"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review">
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <p>------</p>
+            <h3>------</h3>
+            <span class="role">Company Name</span>
+            <div class="review-dots">
+              <div class="dot"></div>
+              <div class="dot active"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review">
+          <div class="review-content">
+            <div class="stars">★★★★★</div>
+            <p>------</p>
+            <h3>------</h3>
+            <span class="role">Company name </span>
+            <div class="review-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot active"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="nav-btn" id="next">&#8250;</button>
+    </div>
+
+  </div>
+
+  <!-- COMPANIES SLIDER -->
+  <div class="companies-block">
+    <p class="companies-label">Companies I worked with</p>
+    <div class="slider-outer">
+      <div class="slider-track" id="sliderTrack"></div>
+    </div>
+  </div>
+
+</section>
 
 
 
@@ -204,7 +308,8 @@
     <!-- Contact Info -->
     <div class="footer-contact">
       <h3>Contact</h3>
-      <p><a href="mailto:">Email Here</a></p>
+      <p><a href="mailto:your@email.com">your@email.com</a>
+      </p>
     </div>
 
     <!-- Social Links -->
@@ -245,6 +350,6 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> 
-  <script src="java.js" defer></script>
+  <script src="java.js"></script>
 </body>
 </html>
