@@ -503,9 +503,11 @@ label {
 
 @media (max-width: 768px) {
   .hero-wrap {
-    padding-top: 60px; /* keep navbar clearance on mobile too */
+    padding-top: 60px;
     margin: 0;
     border-radius: 0;
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* Safari fix */
   }
 
   .hero-cards {
@@ -522,7 +524,6 @@ label {
   .card-label { font-size: 9px; }
 }
 
-/* ================= END HERO CSS ================= */
 /* ================= END OF HERO ================= */
 
 
