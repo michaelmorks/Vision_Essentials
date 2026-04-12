@@ -133,28 +133,27 @@ cards.forEach(card => {
 updateContent("video");
 
 
+/* ── CLIP-PATH REVEAL ON SCROLL ── */
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".section-fade");
 
-  /* ── CLIP-PATH REVEAL ON SCROLL ── */
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".section-fade");
-  
-    const fadeObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add("show");
-          }, 150);
-        }
-      });
-    }, {
-      threshold: 0.25,
-      rootMargin: "0px 0px -100px 0px"
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, 150);
+      }
     });
-  
-    sections.forEach(section => {
-      fadeObserver.observe(section);
-    });
+  }, {
+    threshold: 0.25,
+    rootMargin: "0px 0px -100px 0px"
   });
+
+  sections.forEach(section => {
+    fadeObserver.observe(section);
+  });
+});
 
 
 /* ── LOADING SCREEN ── */
@@ -181,23 +180,11 @@ window.addEventListener("load", () => {
 });
 
 
-/* ── REVIEW CAROUSEL ── */
-let reviewCurrent = 0;
-const reviews = document.querySelectorAll('.review');
-const reviewTotal = reviews.length;
-
-function goTo(idx) {
-  reviews[reviewCurrent].classList.remove('active');
-  reviewCurrent = (idx + reviewTotal) % reviewTotal;
-  reviews[reviewCurrent].classList.add('active');
-}
-
-document.getElementById('prev').addEventListener('click', () => goTo(reviewCurrent - 1));
-document.getElementById('next').addEventListener('click', () => goTo(reviewCurrent + 1));
-
-
 /* ── COUNT-UP ANIMATION ── */
 function animateCounter(el) {
+  if (el.dataset.animated) return;
+  el.dataset.animated = true;
+
   const target = parseInt(el.dataset.target);
   const duration = 1800;
   const step = target / (duration / 16);
@@ -212,6 +199,7 @@ function animateCounter(el) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const counters = document.querySelectorAll('.counter');
+  if (!counters.length) return;
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -220,19 +208,23 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 }); // triggers when 50% visible
+  }, { threshold: 0.1 });
 
-  counters.forEach(counter => observer.observe(counter));
+  counters.forEach(counter => {
+    const rect = counter.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      animateCounter(counter);
+    } else {
+      observer.observe(counter);
+    }
+  });
 });
 
 
 /* ── COMPANY LOGO SLIDER ── */
-/* ── COMPANY LOGO SLIDER ── */
 document.addEventListener('DOMContentLoaded', () => {
-
   const track = document.getElementById('sliderTrack');
-
-  if (!track) return; // safety check
+  if (!track) return;
 
   const companies = [
     { name: 'Stripe',  logo: 'images/stripe.png'  },
@@ -254,5 +246,4 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     track.appendChild(pill);
   });
-
 });
