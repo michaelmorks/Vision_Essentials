@@ -1,3 +1,5 @@
+
+
 /* ================= GLOBAL RESET ================= */
 * {
   box-sizing: border-box;
@@ -113,7 +115,6 @@ label {
   transform: translateY(0);
 }
 /* ================= END OF FADE EFFECT ================= */
-
 
 /* ================= LOADING SCREEN ================= */
 #loader {
@@ -686,7 +687,6 @@ label {
   max-width: 500px;
   margin: 0 auto;
   line-height: 1.7;
-  align-items: center;
 }
 
 .main-row {
@@ -709,7 +709,6 @@ label {
   border-radius: 12px;
   padding: 20px 22px;
   align-items: center;
-
 }
 
 .stat-number {
@@ -734,119 +733,118 @@ label {
   font-weight: bold;
 }
 
-.review-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-}
-
-.review-track {
-  flex: 1;
-  min-height: 260px;
-  background: #fff;
-  border-radius: 12px;
-  border: 0.5px solid rgba(0,0,0,0.12);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-}
-
-.review {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-}
-
-.review.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.review-content {
-  max-width: 600px;
+/* ── Review cards ── */
+.reviews-wrap {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.stars {
+.review-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1.2px solid #eee;
+  box-shadow: 5px 10px 15px rgba(0,0,0,0.4), -2px -5px 10px rgba(0,0,0,0.1);
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+  width: 100px;  /* fixed width instead of max-width so it works reliably */
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
+}
+
+.review-item:hover,
+.review-item.open {
+  width: 100%;
+  box-shadow: 8px 16px 24px rgba(0,0,0,0.12), -2px -5px 10px rgba(0,0,0,0.06);
+}
+
+.stars-col {
+  flex-shrink: 0;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 10px;
+  border-right: 1px solid #eee;
+}
+
+/* renamed from .stars to .stars-vert to avoid clash with counter JS */
+.stars-vert {
   color: #f5a623;
-  font-size: 18px;
-  letter-spacing: 3px;
+  font-size: 16px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 4px;
 }
 
-.review p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #555;
+.stars-col .label {
+  font-size: 10px;
+  color: #aaa;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.review h3 {
+/* fixed: was .review-content but HTML uses .content */
+.review-item .content {
+  flex: 1;
+  padding: 24px 28px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.35s ease 0.18s, transform 0.35s ease 0.18s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-start;
+  white-space: normal; /* fixed: was nowrap which broke text wrapping */
+  min-width: 0;
+}
+
+.review-item:hover .content,
+.review-item.open .content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.review-item .content h2 {
   font-size: 1rem;
   font-weight: 500;
   color: #111;
+  margin: 0;
 }
 
-.role {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.stars-inline {
+  color: #f5a623;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+.review-item .content p {
+  font-size: 0.88rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.review-item .content h3 {
+  font-size: 0.78rem;
   color: #999;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
-
-.review-dots {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-top: 4px;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ccc;
-  transition: background 0.3s;
-}
-
-.dot.active { background: #7c3cff; }
-
-.nav-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 0.5px solid rgba(0,0,0,0.12);
-  background: #fff;
-  color: #111;
-  font-size: 22px;
-  cursor: pointer;
-  transition: 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.nav-btn:hover {
-  background: #7c3cff;
-  color: #fff;
-  border-color: #7c3cff;
-}
-
 @media (max-width: 800px) {
   .section {
-    padding: 60px 16px; /* reduce side padding on mobile */
+    padding: 60px 16px;
   }
 
   .main-row {
@@ -858,13 +856,13 @@ label {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    width: 100%;        /* fill the full column */
+    width: 100%;
     box-sizing: border-box;
   }
 
   .stat-card {
     width: 100%;
-    height: auto;       /* let content decide height, not a fixed 300px */
+    height: auto;
     min-height: 160px;
     display: flex;
     flex-direction: column;
@@ -872,9 +870,77 @@ label {
     align-items: center;
     text-align: center;
   }
+
+  /* mobile: full width, stacked, expands downward */
+  .review-item {
+    width: 100% !important;
+    flex-direction: column;
+    height: 70px; /* collapsed height showing just the stars bar */
+    transition: height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
+  }
+
+  .review-item.open {
+    height: auto;
+    min-height: 180px;
+  }
+
+  .stars-col {
+    width: 100%;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 12px 20px;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    flex-shrink: 0;
+  }
+
+  .stars-vert {
+    writing-mode: horizontal-tb;
+    transform: none;
+    letter-spacing: 3px;
+    font-size: 15px;
+  }
+
+  .stars-col .label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-top: 0;
+    font-size: 11px;
+  }
+
+  /* arrow indicator so users know it's tappable */
+  .stars-col::after {
+    content: "›";
+    font-size: 22px;
+    color: #aaa;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .review-item.open .stars-col::after {
+    transform: rotate(90deg);
+  }
+
+  .review-item .content {
+    opacity: 0;
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    transition: opacity 0.35s ease 0.1s, max-height 0.4s ease, padding 0.3s ease;
+    transform: none !important;
+    align-items: flex-start;
+    white-space: normal;
+  }
+
+  .review-item.open .content {
+    opacity: 1;
+    max-height: 300px;
+    padding: 16px 20px;
+  }
 }
 /* ================= END OF REVIEW SECTION ================= */
-
 
 
 /* ================= COMPANY SLIDER ================= */

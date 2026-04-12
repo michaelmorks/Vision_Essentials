@@ -133,37 +133,28 @@ cards.forEach(card => {
 updateContent("video");
 
 
-/* ── FADE ON SCROLL ── */
-const sections = document.querySelectorAll(".section-fade");
 
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add("show");
-      }, 150);
-    }
-  });
-}, {
-  threshold: 0.25,
-  rootMargin: "0px 0px -100px 0px"
-});
-
-sections.forEach(section => {
-  fadeObserver.observe(section);
-});
-
-/* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+  /* ── CLIP-PATH REVEAL ON SCROLL ── */
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section-fade");
+  
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("show");
+          }, 150);
+        }
+      });
+    }, {
+      threshold: 0.25,
+      rootMargin: "0px 0px -100px 0px"
+    });
+  
+    sections.forEach(section => {
+      fadeObserver.observe(section);
     });
   });
-});
 
 
 /* ── LOADING SCREEN ── */
@@ -236,25 +227,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ── COMPANY LOGO SLIDER ── */
-const track = document.getElementById('sliderTrack');
+/* ── COMPANY LOGO SLIDER ── */
+document.addEventListener('DOMContentLoaded', () => {
 
-const companies = [
-  { name: 'Stripe',  logo: 'images/stripe.png'  },
-  { name: 'Notion',  logo: 'images/notion.png'  },
-  { name: 'Figma',   logo: 'images/figma.png'   },
-  { name: 'Shopify', logo: 'images/shopify.png' },
-  { name: 'Slack',   logo: 'images/slack.png'   },
-  { name: 'HubSpot', logo: 'images/hubspot.png' },
-  { name: 'Webflow', logo: 'images/webflow.png' },
-  { name: 'Linear',  logo: 'images/linear.png'  },
-];
+  const track = document.getElementById('sliderTrack');
 
-[...companies, ...companies].forEach(c => {
-  const pill = document.createElement('div');
-  pill.className = 'logo-pill';
-  pill.innerHTML = `
-    <img src="${c.logo}" alt="${c.name}" class="logo-img">
-    <span class="logo-name">${c.name}</span>
-  `;
-  track.appendChild(pill);
+  if (!track) return; // safety check
+
+  const companies = [
+    { name: 'Stripe',  logo: 'images/stripe.png'  },
+    { name: 'Notion',  logo: 'images/notion.png'  },
+    { name: 'Figma',   logo: 'images/figma.png'   },
+    { name: 'Shopify', logo: 'images/shopify.png' },
+    { name: 'Slack',   logo: 'images/slack.png'   },
+    { name: 'HubSpot', logo: 'images/hubspot.png' },
+    { name: 'Webflow', logo: 'images/webflow.png' },
+    { name: 'Linear',  logo: 'images/linear.png'  },
+  ];
+
+  [...companies, ...companies].forEach(c => {
+    const pill = document.createElement('div');
+    pill.className = 'logo-pill';
+    pill.innerHTML = `
+      <img src="${c.logo}" alt="${c.name}" class="logo-img" onerror="this.style.display='none'">
+      <span class="logo-name">${c.name}</span>
+    `;
+    track.appendChild(pill);
+  });
+
 });
