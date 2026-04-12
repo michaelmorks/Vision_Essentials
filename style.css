@@ -660,7 +660,6 @@ label {
 }
 /* ================= END OF SERVICES ================= */
 
-
 /* ================= REVIEW SECTION ================= */
 .section {
   width: 100%;
@@ -689,18 +688,19 @@ label {
   line-height: 1.7;
 }
 
+/* ── Layout: stacked vertically now ── */
 .main-row {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 32px;
-  align-items: stretch;
-}
-
-.stats {
   display: flex;
   flex-direction: column;
+  gap: 32px;
+}
+
+/* ── Stats: 3 columns full width ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  align-items: center;
+  width: 100%;
 }
 
 .stat-card {
@@ -708,7 +708,11 @@ label {
   border: 0.5px solid rgba(0,0,0,0.12);
   border-radius: 12px;
   padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .stat-number {
@@ -733,11 +737,12 @@ label {
   font-weight: bold;
 }
 
-/* ── Review cards ── */
+/* ── Review cards: desktop expands sideways on hover ── */
 .reviews-wrap {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  width: 100%;
 }
 
 .review-item {
@@ -750,7 +755,7 @@ label {
   background: #fff;
   display: flex;
   align-items: stretch;
-  width: 100px;  /* fixed width instead of max-width so it works reliably */
+  width: 100px;
   transition: width 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
 }
 
@@ -772,7 +777,6 @@ label {
   border-right: 1px solid #eee;
 }
 
-/* renamed from .stars to .stars-vert to avoid clash with counter JS */
 .stars-vert {
   color: #f5a623;
   font-size: 16px;
@@ -791,7 +795,6 @@ label {
   text-transform: uppercase;
 }
 
-/* fixed: was .review-content but HTML uses .content */
 .review-item .content {
   flex: 1;
   padding: 24px 28px;
@@ -804,7 +807,7 @@ label {
   gap: 8px;
   justify-content: center;
   align-items: flex-start;
-  white-space: normal; /* fixed: was nowrap which broke text wrapping */
+  white-space: normal;
   min-width: 0;
 }
 
@@ -842,40 +845,26 @@ label {
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
+
+/* ── Mobile ── */
 @media (max-width: 800px) {
   .section {
     padding: 60px 16px;
   }
 
-  .main-row {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
   .stats {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    width: 100%;
-    box-sizing: border-box;
   }
 
   .stat-card {
-    width: 100%;
-    height: auto;
     min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 
-  /* mobile: full width, stacked, expands downward */
   .review-item {
     width: 100% !important;
     flex-direction: column;
-    height: 70px; /* collapsed height showing just the stars bar */
+    height: 70px;
     transition: height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
   }
 
@@ -910,7 +899,6 @@ label {
     font-size: 11px;
   }
 
-  /* arrow indicator so users know it's tappable */
   .stars-col::after {
     content: "›";
     font-size: 22px;
@@ -944,7 +932,13 @@ label {
 
 
 /* ================= COMPANY SLIDER ================= */
-.companies-block { margin-top: 48px; }
+.companies-block {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
 .companies-label {
   text-align: center;
@@ -959,6 +953,8 @@ label {
 .slider-outer {
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 860px;
 }
 
 .slider-outer::before,
