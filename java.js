@@ -157,26 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ── LOADING SCREEN ── */
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const loaderVideo = document.getElementById("loader-video");
-
-  let hasExited = false;
-
-  function hideLoader() {
-    if (hasExited) return;
-    hasExited = true;
-    loader.classList.add("fade-out");
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 800);
-  }
-
-  if (loaderVideo && window.innerWidth > 768) {
-    loaderVideo.addEventListener("ended", hideLoader);
-  }
-
-  setTimeout(hideLoader, 4000);
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader-overlay').classList.add('hidden');
+  }, 3000);
 });
 
 
