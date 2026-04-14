@@ -1,6 +1,4 @@
-
-
-/* ================= GLOBAL RESET ================= */
+  /* ================= GLOBAL RESET ================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -962,6 +960,100 @@ label {
 
 
 
+.pricing-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  color: #666;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.pricing-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 16px;
+  color: #888;
+}
+
+.price span {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 8px;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+}
+
+.featured {
+  transform: scale(1.05);
+}
+
+.pricing-cta {
+  margin-top: 50px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #000000;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #6100d6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pricing-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .pricing-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
 /* ================= CONTACT FORM ================= */
 .container {
   max-width: 500px;
@@ -1051,7 +1143,7 @@ label {
 }
 
 .footer-links a:hover {
-  color: #000000;
+  color: #929292;
   transform: translateX(4px);
 }
 
@@ -1066,7 +1158,8 @@ label {
   transition: color 0.3s ease;
 }
 
-.footer-contact a:hover { color: #000000; }
+.footer-contact a:hover { color: #929292;
+  ; }
 
 .footer-social {
   display: flex;
@@ -1085,7 +1178,7 @@ label {
 }
 
 .social-link:hover { transform: translateX(4px); }
-.social-link:hover span { color: #000000; }
+.social-link:hover span {   color: #929292;}
 .social-link:hover img { filter: brightness(1.5); }
 
 .social-icon-img {
