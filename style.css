@@ -33,7 +33,7 @@ html {
 
 
 /* ================= COLOURS ================= */
-.pruple { color: #7a5cff; }
+.pruple { color: #7700ff; }
 /* ================= END OF COLOURS ================= */
 
 
@@ -602,42 +602,43 @@ label {
 }
 /* ================= END OF SERVICES ================= */
 
+
 /* ================= REVIEW SECTION ================= */
 .section {
   width: 100%;
   font-family: sans-serif;
-  padding: 60px 40px;
+  padding: 80px 40px;
   background: transparent;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .section-header h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
   color: #111;
-  line-height: 1.3;
-  margin-bottom: 12px;
+  line-height: 1.2;
+  margin-bottom: 14px;
 }
 
 .section-header p {
   font-size: 1rem;
-  color: #666;
-  max-width: 500px;
+  color: #888;
+  max-width: 480px;
   margin: 0 auto;
   line-height: 1.7;
 }
 
-/* ── Layout: stacked vertically now ── */
 .main-row {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
 }
 
-/* ── Stats: 3 columns full width ── */
+/* ── Stats ── */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -647,108 +648,118 @@ label {
 
 .stat-card {
   background: #fff;
-  border: 0.5px solid rgba(0,0,0,0.12);
-  border-radius: 12px;
-  padding: 20px 22px;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
 }
 
 .stat-number {
-  font-size: 2.2rem;
-  font-weight: 100;
-  color: #7c3cff;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #6100d6;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
 }
 
 .stat-card h4 {
   font-size: 0.85rem;
-  font-weight: bold;
+  font-weight: 600;
   color: #111;
-  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0 0 8px;
 }
 
 .stat-card p {
-  font-size: 0.78rem;
-  color: #666;
+  font-size: 0.82rem;
+  color: #999;
   line-height: 1.6;
-  font-weight: bold;
+  font-weight: 400;
+  margin: 0;
 }
 
-/* ── Review cards: desktop expands sideways on hover ── */
+/* ── Review cards ── */
 .reviews-wrap {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
 }
 
 .review-item {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 14px;
   cursor: pointer;
-  border: 1.2px solid #eee;
-  box-shadow: 5px 10px 15px rgba(0,0,0,0.4), -2px -5px 10px rgba(0,0,0,0.1);
+  border: 1px solid #ebebeb;
   background: #fff;
   display: flex;
   align-items: stretch;
-  width: 100px;
-  transition: width 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
+  width: 88px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .review-item:hover,
 .review-item.open {
   width: 100%;
-  box-shadow: 8px 16px 24px rgba(0,0,0,0.12), -2px -5px 10px rgba(0,0,0,0.06);
+  border-color: #ddd;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
 }
 
 .stars-col {
   flex-shrink: 0;
-  width: 100px;
+  width: 88px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 20px 10px;
-  border-right: 1px solid #eee;
+  gap: 8px;
+  padding: 22px 10px;
+  border-right: 1px solid #f0f0f0;
+  background: #fafafa;
 }
 
 .stars-vert {
   color: #f5a623;
-  font-size: 16px;
+  font-size: 15px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  letter-spacing: 4px;
+  letter-spacing: 5px;
 }
 
 .stars-col .label {
-  font-size: 10px;
-  color: #aaa;
+  font-size: 9px;
+  color: #bbb;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   margin-top: 6px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .review-item .content {
   flex: 1;
-  padding: 24px 28px;
+  padding: 26px 30px;
   opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 0.35s ease 0.18s, transform 0.35s ease 0.18s;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 8px;
   justify-content: center;
-  align-items: flex-start;
   white-space: normal;
   min-width: 0;
 }
@@ -761,31 +772,31 @@ label {
 
 .review-item .content h2 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #111;
   margin: 0;
 }
 
 .stars-inline {
   color: #f5a623;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 3px;
 }
 
 .review-item .content p {
-  font-size: 0.88rem;
+  font-size: 0.875rem;
   color: #666;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .review-item .content h3 {
-  font-size: 0.78rem;
-  color: #999;
+  font-size: 0.75rem;
+  color: #bbb;
   font-weight: 500;
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.09em;
 }
 
 /* ── Mobile ── */
@@ -796,17 +807,22 @@ label {
 
   .stats {
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
 
   .stat-card {
-    min-height: 160px;
+    padding: 22px 16px;
+    min-height: 140px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
   }
 
   .review-item {
     width: 100% !important;
     flex-direction: column;
-    height: 70px;
+    height: 66px;
     transition: height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
   }
 
@@ -819,11 +835,11 @@ label {
     width: 100%;
     flex-direction: row;
     border-right: none;
-    border-bottom: 1px solid #eee;
-    padding: 12px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 14px 20px;
     justify-content: space-between;
     align-items: center;
-    min-height: 70px;
+    min-height: 66px;
     flex-shrink: 0;
   }
 
@@ -831,20 +847,19 @@ label {
     writing-mode: horizontal-tb;
     transform: none;
     letter-spacing: 3px;
-    font-size: 15px;
   }
 
   .stars-col .label {
     writing-mode: horizontal-tb;
     transform: none;
     margin-top: 0;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .stars-col::after {
     content: "›";
     font-size: 22px;
-    color: #aaa;
+    color: #ccc;
     transition: transform 0.3s ease;
     display: inline-block;
   }
@@ -858,16 +873,14 @@ label {
     max-height: 0;
     padding: 0 20px;
     overflow: hidden;
-    transition: opacity 0.35s ease 0.1s, max-height 0.4s ease, padding 0.3s ease;
+    transition: opacity 0.3s ease 0.1s, max-height 0.4s ease, padding 0.3s ease;
     transform: none !important;
-    align-items: flex-start;
-    white-space: normal;
   }
 
   .review-item.open .content {
     opacity: 1;
     max-height: 300px;
-    padding: 16px 20px;
+    padding: 18px 20px;
   }
 }
 /* ================= END OF REVIEW SECTION ================= */
@@ -875,7 +888,7 @@ label {
 
 /* ================= COMPANY SLIDER ================= */
 .companies-block {
-  margin-top: 48px;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -884,11 +897,11 @@ label {
 
 .companies-label {
   text-align: center;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #999;
+  letter-spacing: 0.12em;
+  color: #bbb;
   margin-bottom: 24px;
 }
 
@@ -922,34 +935,40 @@ label {
 
 .slider-track {
   display: flex;
-  gap: 40px;
+  gap: 12px;
   width: max-content;
-  animation: slide 18s linear infinite;
+  animation: slide 22s linear infinite;
 }
 
 .logo-pill {
-  background: #f5f5f5;
-  border: 0.5px solid rgba(0,0,0,0.1);
-  border-radius: 12px;
-  padding: 14px 28px;
+  background: #f8f8f8;
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  padding: 12px 22px;
   display: flex;
   align-items: center;
   gap: 10px;
   white-space: nowrap;
   flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.logo-pill:hover {
+  background: #fff;
+  border-color: #ddd;
 }
 
 .logo-img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
   border-radius: 4px;
 }
 
 .logo-name {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #111;
+  color: #444;
 }
 
 @keyframes slide {
@@ -959,6 +978,7 @@ label {
 /* ================= END OF COMPANY SLIDER ================= */
 
 
+/* ================= PRICING SECTION ================= */
 
 .pricing-section {
   padding: 80px 20px;
@@ -971,78 +991,131 @@ label {
   margin-bottom: 10px;
 }
 
+.pricing-title .pruple {
+  color: #6100d6;
+}
+
 .pricing-subtitle {
   color: #666;
   margin-bottom: 50px;
   font-size: 16px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  gap: 20px;
   max-width: 1100px;
   margin: 0 auto;
+  align-items: start;
 }
 
+/* --- Base card --- */
 .pricing-card {
   background: white;
-  padding: 40px 25px;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
+  padding: 36px 28px;
+  border-radius: 16px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+  border-color: #e0e0e0;
 }
 
 .pricing-card h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin: 0 0 20px;
 }
 
+/* --- Price block --- */
 .price {
-  font-size: 16px;
-  color: #888;
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .price span {
   display: block;
-  font-size: 34px;
+  font-size: 38px;
   font-weight: 700;
   color: #111;
-  margin-top: 8px;
+  margin-top: 6px;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
-.pricing-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+/* --- Featured card --- */
+.pricing-card.featured {
+  background: #6100d6;
+  border-color: #6100d6;
+  box-shadow: 0 8px 32px rgba(97, 0, 214, 0.25);
+  transform: translateY(-8px);
 }
 
-.featured {
-  transform: scale(1.05);
+.pricing-card.featured:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 20px 48px rgba(97, 0, 214, 0.3);
 }
 
+.pricing-card.featured h3 {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.pricing-card.featured .price {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pricing-card.featured .price span {
+  color: #ffffff;
+}
+
+/* --- CTA --- */
 .pricing-cta {
-  margin-top: 50px;
+  margin-top: 52px;
 }
 
 .btn-primary {
   display: inline-block;
-  padding: 14px 30px;
-  background: #000000;
+  padding: 14px 32px;
+  background: #000;
   color: white;
   border-radius: 30px;
   font-weight: 600;
+  font-size: 15px;
   text-decoration: none;
-  transition: 0.3s;
+  transition: background 0.25s, transform 0.2s;
 }
 
 .btn-primary:hover {
   background: #6100d6;
+  transform: translateY(-2px);
 }
 
-/* Responsive */
+/* --- Responsive --- */
 @media (max-width: 900px) {
   .pricing-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-6px);
   }
 }
 
@@ -1050,7 +1123,14 @@ label {
   .pricing-container {
     grid-template-columns: 1fr;
   }
+
+  .pricing-title {
+    font-size: 32px;
+  }
 }
+
+/* ================= END OF PRICING SECTION ================= */
+
 
 
 
