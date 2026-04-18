@@ -90,22 +90,22 @@ const contentData = {
   video: {
     title: "Video Production",
     desc: "High-quality video production that tells your brand story, captures attention, and drives engagement.",
-    video: "videos/video-production.mp4"
+    video: "videos/STATUS20205.mp4"
   },
   Social: {
     title: "Social Media Content",
     desc: "Scroll-stopping content designed to grow your audience and increase engagement across platforms.",
-    video: "videos/social.mp4"
+    video: "videos/promoviddraft2.mp4"
   },
   events: {
     title: "Events",
     desc: "Professional event coverage capturing every key moment with cinematic quality.",
-    video: "videos/events.mp4"
+    video: "videos/prophecy2(6).mp4"
   },
   business: {
     title: "Business Content",
     desc: "Corporate and promotional videos that build trust and showcase your business professionally.",
-    video: "videos/business.mp4"
+    video: "videos/prophecy1(1).mp4"
   },
   branding: {
     title: "Branding",
