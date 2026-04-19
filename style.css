@@ -627,9 +627,8 @@ label {
   .text-box h3 { font-size: 24px; }
   .text-box p  { font-size: 16px; }
   .services-header h2 { font-size: 32px; }
-
   /* All videos full width on mobile */
-  .video, .social, .business, .events, .branding {
+  .social, .business, .events, .branding {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 9/16;
