@@ -90,27 +90,32 @@ const contentData = {
   video: {
     title: "Video Production",
     desc: "High-quality video production that tells your brand story, captures attention, and drives engagement.",
-    video: "https://player.vimeo.com/video/1184473573?autoplay=1&muted=1&loop=1"
+    video: "https://player.vimeo.com/video/1184473573?autoplay=1&loop=1",
+    class: "video"
   },
   Social: {
     title: "Social Media Content",
     desc: "Scroll-stopping content designed to grow your audience and increase engagement across platforms.",
-    video: "videos/promoviddraft2.mp4"
+    video: "https://player.vimeo.com/video/1184475526?autoplay=1&loop=1",
+    class: "social"
   },
   events: {
     title: "Events",
     desc: "Professional event coverage capturing every key moment with cinematic quality.",
-    video: "videos/prophecy2(6).mp4"
+    video: "https://player.vimeo.com/video/1184478411?autoplay=1&loop=1",
+    class: "events"
   },
   business: {
     title: "Business Content",
     desc: "Corporate and promotional videos that build trust and showcase your business professionally.",
-    video: "videos/prophecy1(1).mp4"
+    video: "https://player.vimeo.com/video/1184477919?autoplay=1&loop=1",
+    class: "business"
   },
   branding: {
     title: "Branding",
     desc: "Creative visuals that define your brand identity and help you stand out in the market.",
-    video: "videos/branding.mp4"
+    video: "videos/branding.mp4",
+    class: "branding"
   }
 };
 
@@ -119,6 +124,7 @@ function updateContent(key) {
   title.textContent = data.title;
   desc.textContent = data.desc;
   video.src = data.video;
+  video.className = data.class;
 }
 
 cards.forEach(card => {
