@@ -90,7 +90,7 @@ const contentData = {
   video: {
     title: "Video Production",
     desc: "High-quality video production that tells your brand story, captures attention, and drives engagement.",
-    video: "https://player.vimeo.com/video/1184473573?autoplay=1&loop=1",
+    video: "https://player.vimeo.com/video/1184473573?autoplay=1&muted=1&loop=1",
     class: "video"
   },
   Social: {

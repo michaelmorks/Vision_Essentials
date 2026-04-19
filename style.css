@@ -617,25 +617,39 @@ label {
 }
 
 @media (max-width: 900px) {
-  .content-wrapper { flex-direction: column; text-align: center; }
+  .content-wrapper { 
+    flex-direction: column; 
+    text-align: center;
+    gap: 30px;
+  }
   .text-box  { max-width: 100%; }
-  .video-box { max-width: 100%; }
+  .video-box { max-width: 100%; width: 100%; }
   .text-box h3 { font-size: 24px; }
   .text-box p  { font-size: 16px; }
-  .video-box iframe { height: 300px; }
   .services-header h2 { font-size: 32px; }
-  .video { width: 450px; height: 400px; }
-  .social { width: 170px; height: 500px; }
-  .business { width: 170px; height: 500px; }
-  .events { width: 170px; height: 500px; }
 
+  /* All videos full width on mobile */
+  .video, .social, .business, .events, .branding {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9/16;
+    margin: 0 auto;
+  }
 
+  /* Override portrait videos to be narrower */
+  .social, .business, .events {
+    width: 75% !important;
+  }
 }
 
 @media (max-width: 500px) {
   .services-header h2 { font-size: 28px; }
   .services-header p  { font-size: 16px; }
   .card { font-size: 13px; padding: 10px 16px; }
+
+  .social, .business, .events {
+    width: 85% !important;
+  }
 }
 /* ================= END OF SERVICES ================= */
 
