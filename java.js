@@ -85,6 +85,7 @@ const cards = document.querySelectorAll(".card");
 const title = document.getElementById("env-title");
 const desc = document.getElementById("env-desc");
 const video = document.getElementById("env-video");
+let lastSrc = "";
 
 const contentData = {
   video: {
@@ -96,25 +97,25 @@ const contentData = {
   Social: {
     title: "Social Media Content",
     desc: "Scroll-stopping content designed to grow your audience and increase engagement across platforms.",
-    video: "https://player.vimeo.com/video/1184475526?autoplay=1&loop=1",
+    video: "https://player.vimeo.com/video/1184666620?autoplay=1&loop=1",
     class: "social"
   },
   events: {
     title: "Events",
     desc: "Professional event coverage capturing every key moment with cinematic quality.",
-    video: "https://player.vimeo.com/video/1184478411?autoplay=1&loop=1",
+    video: "https://player.vimeo.com/video/1184669012?autoplay=1&loop=1",
     class: "events"
   },
   business: {
     title: "Business Content",
     desc: "Corporate and promotional videos that build trust and showcase your business professionally.",
-    video: "https://player.vimeo.com/video/1184477919?autoplay=1&loop=1",
+    video: "https://player.vimeo.com/video/1184667410?autoplay=1&loop=1",
     class: "business"
   },
   branding: {
     title: "Branding",
     desc: "Creative visuals that define your brand identity and help you stand out in the market.",
-    video: "videos/branding.mp4",
+    video: "https://player.vimeo.com/video/1184477919?autoplay=1&loop=1",
     class: "branding"
   }
 };
@@ -125,6 +126,7 @@ function updateContent(key) {
   desc.textContent = data.desc;
   video.src = data.video;
   video.className = data.class;
+  lastSrc = data.video; // keep lastSrc updated
 }
 
 cards.forEach(card => {
@@ -137,6 +139,28 @@ cards.forEach(card => {
 });
 
 updateContent("video");
+
+/* ── PAUSE VIDEO WHEN OUT OF VIEW ── */
+const servicesSection = document.getElementById("services");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Back in view — restore saved src
+      if (lastSrc) {
+        video.src = lastSrc;
+      }
+    } else {
+      // Out of view — save src then clear it
+      if (video.src) {
+        lastSrc = video.src;
+      }
+      video.src = "";
+    }
+  });
+}, { threshold: 0.2 });
+
+observer.observe(servicesSection);
 
 
 /* ── CLIP-PATH REVEAL ON SCROLL ── */
