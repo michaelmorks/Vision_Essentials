@@ -1008,6 +1008,9 @@ label {
 .pricing-section {
   padding: 80px 20px;
   text-align: center;
+  background: #111;
+  color: #fff;
+  width: 100%;
 }
 
 .pricing-title {
@@ -1021,7 +1024,7 @@ label {
 }
 
 .pricing-subtitle {
-  color: #666;
+  color: #cbcbcb;
   margin-bottom: 50px;
   font-size: 16px;
   max-width: 480px;
@@ -1115,8 +1118,8 @@ label {
 .btn-primary {
   display: inline-block;
   padding: 14px 32px;
-  background: #000;
-  color: white;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
   border-radius: 30px;
   font-weight: 600;
   font-size: 15px;
@@ -1234,7 +1237,7 @@ label {
 /* ================= FOOTER ================= */
 .footer-section {
   width: 100%;
-  background: linear-gradient(135deg, #000000, #7700ff);
+  background: linear-gradient(135deg, #111, #000000);
   color: #ffffff;
   padding: 80px 20px 40px;
 }
