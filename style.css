@@ -59,10 +59,6 @@ button {
   font-weight: 600;
   letter-spacing: 0.3px;
 }
-
-#home{
-  padding-top: 35px;
-}
 /* ================= END OF TYPOGRAPHY ================= */
 
 
@@ -471,10 +467,12 @@ label {
 
 /* ================= HOME SECTION ================= */
 #home {
-  min-height: 70vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #111;
+  width: 100%;
 }
 
 .p-container {
@@ -485,7 +483,7 @@ label {
 }
 
 .p-container p {
-  color: #000;
+  color: #ffffff;
   font-size: 25px;
   font-weight: 800;
   text-align: center;
@@ -1184,6 +1182,17 @@ label {
 
 
 /* ================= CONTACT FORM ================= */
+
+#started{
+  background-color: #111;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+
+}
+
 .container {
   max-width: 500px;
   margin: 80px auto;
@@ -1191,6 +1200,7 @@ label {
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
 }
 
 .container button {
@@ -1237,7 +1247,7 @@ label {
 /* ================= FOOTER ================= */
 .footer-section {
   width: 100%;
-  background: linear-gradient(135deg, #111, #000000);
+  background: linear-gradient(135deg, #111, #111);
   color: #ffffff;
   padding: 80px 20px 40px;
 }
