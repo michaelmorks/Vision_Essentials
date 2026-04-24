@@ -235,28 +235,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* ── COMPANY LOGO SLIDER ── */
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById('sliderTrack');
   if (!track) return;
 
   const companies = [
-    { name: 'Stripe',  logo: 'images/stripe.png'  },
-    { name: 'Notion',  logo: 'images/notion.png'  },
-    { name: 'Figma',   logo: 'images/figma.png'   },
-    { name: 'Shopify', logo: 'images/shopify.png' },
-    { name: 'Slack',   logo: 'images/slack.png'   },
-    { name: 'HubSpot', logo: 'images/hubspot.png' },
-    { name: 'Webflow', logo: 'images/webflow.png' },
-    { name: 'Linear',  logo: 'images/linear.png'  },
+    { logo: 'work-logos/747.png' },
+    { logo: 'work-logos/ball-smart.png' },
+    { logo: 'work-logos/barber.png' },
+    { logo: 'work-logos/ball.png' },
+    { logo: 'work-logos/brid.png' },
+    { logo: 'work-logos/ehs.png' },
+    { logo: 'work-logos/muslsa.png' },
+    { logo: 'work-logos/pakenhamfc.png' },
+    { logo: 'work-logos/plus.png' },
+    { logo: 'work-logos/sting.png' },
   ];
 
   [...companies, ...companies].forEach(c => {
     const pill = document.createElement('div');
     pill.className = 'logo-pill';
     pill.innerHTML = `
-      <img src="${c.logo}" alt="${c.name}" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-name">${c.name}</span>
+      <img src="${c.logo}" alt="" class="logo-img" onerror="this.style.display='none'">
     `;
     track.appendChild(pill);
   });

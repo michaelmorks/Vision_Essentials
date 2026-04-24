@@ -322,7 +322,7 @@ label {
 
 .hero-headline h1 {
   font-size: clamp(32px, 5.5vw, 64px);
-  font-weight: 800;
+  font-weight: 1000px;
   line-height: 1.1;
   letter-spacing: -1px;
   color: #fff;
@@ -453,11 +453,14 @@ label {
     gap: 8px;
   }
 
+
   .hcard { width: 80px; height: 120px; border-radius: 10px; }
   .hero-cards .hcard:nth-child(2),
   .hero-cards .hcard:nth-child(4) { width: 95px; height: 135px; }
   .hero-cards .hcard:nth-child(3),
   .hero-cards .hcard.hcard--center { width: 110px; height: 150px; }
+  .hero-headline h1 {font-size: 50px;}
+  .hero-headline p {font-size:19px;}
 
   .card-label { font-size: 9px; }
 }
@@ -497,7 +500,6 @@ label {
   to { opacity: 1; transform: translateY(0); }
 }
 /* ================= END OF HOME SECTION ================= */
-
 
 /* ================= SERVICES ================= */
 #services {
@@ -553,11 +555,6 @@ label {
   text-align: left;
 }
 
-.video-box {
-  flex: 1.4;
-  max-width: 700px;
-}
-
 /* Shared styles for ALL videos */
 .video-box iframe {
   border-radius: 18px;
@@ -568,19 +565,51 @@ label {
 /* ── Individual video sizes — adjust these ── */
 .video {
   width: 100%;
-  height: 265px;
+  height: 500px; /* was 400px */
 }
 
 .branding, .business, .events, .social {
-  width: 60%;
+  width: 75%;    /* was 60% */
   aspect-ratio: 9/16;
   height: auto;
   margin: 0 auto;
 }
 
-.text-box {
-  flex: 1;
-  max-width: 500px;
+@media (min-width: 901px) {
+  #services {
+    padding: 100px 20px; /* was 80px */
+    max-width: 1400px;   /* was 1200px */
+  }
+
+  .services-header h2 {
+    font-size: 52px; /* was 42px */
+  }
+
+  .content-wrapper {
+    gap: 60px;
+  }
+
+  .video-box {
+    flex: 1.4; /* was 1.2 */
+  }
+
+  .text-box {
+    flex: 1;
+    max-width: 550px; /* was 650px */
+  }
+
+  .text-box h3 {
+    font-size: 40px; /* was 34px */
+  }
+
+  .text-box p {
+    font-size: 18px; /* was 17px */
+  }
+
+  .video{
+    height: 280px;
+    width: 100%;
+  }
 }
 
 .text-box h3 {
@@ -606,10 +635,9 @@ label {
   .text-box h3 { font-size: 24px; }
   .text-box p  { font-size: 16px; }
   .services-header h2 { font-size: 32px; }
+  .video      { height: 300px; }
   
-  /* All videos full width on mobile */
-  /* Override portrait videos to be narrower */
-  .social, .business, .events,.branding{
+  .social, .business, .events, .branding {
     width: 75% !important;
   }
 }
@@ -834,12 +862,22 @@ label {
   }
 
   .stat-card {
-    padding: 22px 16px;
+    padding: 18px 10px; /* was 22px 16px */
     min-height: 140px;
   }
 
+  .stat-card h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.03em; /* was 0.07em — tight spacing was causing overflow */
+  }
+
+
+  .stat-card p {
+    font-size: 0.72rem;
+  }
+
   .stat-number {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* was 2.2rem */
   }
 
   .review-item {
@@ -964,8 +1002,7 @@ label {
 }
 
 .logo-pill {
-  background: #f8f8f8;
-  border: 1px solid #efefef;
+  background: #ffffff;
   border-radius: 10px;
   padding: 12px 22px;
   display: flex;
@@ -982,17 +1019,13 @@ label {
 }
 
 .logo-img {
-  width: 20px;
-  height: 20px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 4px;
 }
 
-.logo-name {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #444;
-}
+
 
 @keyframes slide {
   0%   { transform: translateX(0); }
@@ -1084,28 +1117,35 @@ label {
 }
 
 /* --- Featured card --- */
+/* --- Featured card — highlight removed --- */
 .pricing-card.featured {
-  background: #6100d6;
-  border-color: #6100d6;
-  box-shadow: 0 8px 32px rgba(97, 0, 214, 0.25);
-  transform: translateY(-8px);
+  background: white;
+  border-color: #f0f0f0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transform: none;
 }
 
 .pricing-card.featured:hover {
-  transform: translateY(-14px);
-  box-shadow: 0 20px 48px rgba(97, 0, 214, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+  border-color: #e0e0e0;
 }
 
 .pricing-card.featured h3 {
-  color: rgba(255, 255, 255, 0.65);
+  color: #888; /* back to normal grey */
 }
 
 .pricing-card.featured .price {
-  color: rgba(255, 255, 255, 0.55);
+  color: #aaa;
 }
 
 .pricing-card.featured .price span {
-  color: #ffffff;
+  color: #111;
+}
+
+.badge.popular {
+  background: #f0e6ff; /* match the 'best value' badge style */
+  color: #6100d6;
 }
 
 /* --- CTA --- */
