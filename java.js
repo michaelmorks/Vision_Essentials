@@ -187,11 +187,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ── LOADING SCREEN ── */
+const el = document.getElementById("typing-text");
+const fullText = "Vision Essentials";
+const purpleWord = "Vision";
+
+const TYPE_SPEED = 100;
+const DELETE_SPEED = 60;
+const PAUSE_AFTER_TYPE = 1800;
+const PAUSE_AFTER_DELETE = 500;
+
+let i = 0;
+let deleting = false;
+let stopped = false;
+
+function buildHTML(text) {
+  if (text.length <= purpleWord.length) {
+    return `<span class="purple">${text}</span>`;
+  }
+  return `<span class="purple">${purpleWord}</span>${text.slice(purpleWord.length)}`;
+}
+
+function tick() {
+  if (stopped) return;
+
+  el.innerHTML = buildHTML(fullText.slice(0, i));
+
+  if (!deleting) {
+    if (i < fullText.length) {
+      i++;
+      setTimeout(tick, TYPE_SPEED + Math.random() * 40);
+    } else {
+      setTimeout(() => { deleting = true; tick(); }, PAUSE_AFTER_TYPE);
+    }
+  } else {
+    if (i > 0) {
+      i--;
+      setTimeout(tick, DELETE_SPEED);
+    } else {
+      setTimeout(() => { deleting = false; tick(); }, PAUSE_AFTER_DELETE);
+    }
+  }
+}
+
+tick();
+
 window.addEventListener('load', () => {
   setTimeout(() => {
-    document.getElementById('loader-overlay').classList.add('hidden');
-  }, 3000);
+    // 1. Stop the typing loop
+    stopped = true;
+
+    // 2. Smoothly finish — delete back to empty before hiding
+    function deleteOut() {
+      if (i > 0) {
+        i--;
+        el.innerHTML = buildHTML(fullText.slice(0, i));
+        setTimeout(deleteOut, 40);
+      } else {
+        // 3. Hide the loader once text is fully gone
+        document.getElementById('loader-overlay').classList.add('hidden');
+      }
+    }
+
+    deleteOut();
+  }, 4000);
 });
+
 
 
 /* ── COUNT-UP ANIMATION ── */

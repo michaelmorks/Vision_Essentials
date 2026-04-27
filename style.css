@@ -111,7 +111,44 @@ label {
 }
 /* ================= END OF FADE EFFECT ================= */
 
+
 /* ================= LOADING SCREEN ================= */
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 20px; /* prevents edge clipping */
+  width: 100%;
+}
+
+.typing-container {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.typing-text {
+  color: white;
+  font-size: clamp(20px, 6vw, 50px);
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 3px solid white;
+  animation: blink 0.7s step-end infinite;
+  max-width: 100%;
+}
+
+.purple {
+  color: #7700ff;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: white; }
+  50%       { border-color: transparent; }
+}
 
 #loader-overlay {
   position: fixed;
@@ -122,6 +159,8 @@ label {
   justify-content: center;
   z-index: 9999;
   transition: opacity 0.5s ease, visibility 0.5s ease;
+  padding: 20px;        /* safe zone on small screens */
+  box-sizing: border-box;
 }
 
 #loader-overlay.hidden {
@@ -141,7 +180,7 @@ label {
   height: var(--uib-size);
   width: var(--uib-size);
   animation: smoothRotate calc(var(--uib-speed) * 1.8) linear infinite;
-  background: transparent !important; /* add this */
+  background: transparent !important;
 }
 
 .dot {
@@ -191,22 +230,13 @@ label {
 }
 
 @keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  65%,
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  65%, 100% { transform: rotate(360deg); }
 }
 
 @keyframes smoothRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* ================= END OF LOADING SCREEN ================= */
