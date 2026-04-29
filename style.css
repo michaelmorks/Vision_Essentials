@@ -114,43 +114,6 @@ label {
 
 /* ================= LOADING SCREEN ================= */
 
-.loader-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0 20px; /* prevents edge clipping */
-  width: 100%;
-}
-
-.typing-container {
-  display: inline-block;
-  max-width: 100%;
-}
-
-.typing-text {
-  color: white;
-  font-size: clamp(20px, 6vw, 50px);
-  font-family: monospace;
-  white-space: nowrap;
-  overflow: hidden;
-  letter-spacing: 2pxß;
-  display: inline-block;
-  border-right: 3px solid white;
-  animation: blink 0.7s step-end infinite;
-  max-width: 100%;
-}
-
-.purple {
-  color: #7700ff;
-}
-
-@keyframes blink {
-  0%, 100% { border-color: white; }
-  50%       { border-color: transparent; }
-}
-
 #loader-overlay {
   position: fixed;
   inset: 0;
