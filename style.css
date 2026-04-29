@@ -998,24 +998,22 @@ label {
 .logo-pill {
   background: #ffffff;
   border-radius: 10px;
-  padding: 16px;  /* give the big image some breathing room */
+  padding: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  white-space: nowrap;
+  justify-content: center;
   flex-shrink: 0;
   transition: background 0.2s ease, border-color 0.2s ease;
+  width: 110px;   /* fixed pill size so all pills are identical */
+  height: 110px;
 }
-
-
 
 .logo-img {
-  width: 80px;    /* 150px is quite large for a logo slider */
+  width: 80px;
   height: 80px;
   object-fit: contain;
+  display: block;
 }
-
-
 
 @keyframes slide {
   0%   { transform: translateX(0); }
@@ -1084,10 +1082,8 @@ label {
   padding: 36px 28px;
   border-radius: 16px;
   border: 1px solid #6100d6;
-  box-shadow: 0 2px 12px rgb(157, 66, 255);
   transition: all 0.25s ease;
   text-align: left;
-
 }
 
 .pricing-card-main h3 {
@@ -1114,6 +1110,12 @@ label {
   margin-top: 6px;
   letter-spacing: -0.02em;
   line-height: 1;
+}
+
+.pricing-card-main:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+  border-color:#6100d6;
 }
 
 .pricing-card h3 {
@@ -1412,7 +1414,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 1px;
   margin-top: 0;
 }
 
@@ -1422,8 +1424,9 @@ label {
 }
 
 .Morkslogo {
-  width: 28px;
+  width: 40px;
   height: auto;
+  margin-bottom: 3px;
 }
 
 @media (max-width: 768px) {

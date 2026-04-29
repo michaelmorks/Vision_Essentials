@@ -1,23 +1,3 @@
-/* ── HERO SLIDESHOW ── */
-const slides = document.querySelectorAll('.slide');
-const total = slides.length;
-let current = 0;
-
-function getIndex(offset) {
-  return (current + offset + total) % total;
-}
-
-function update() {
-  slides.forEach(s => s.className = s.className.replace(/\b(active|next|prev|hidden)\b/g, '').trim());
-  slides[getIndex(0)].classList.add('active');
-  slides[getIndex(1)].classList.add('next');
-  slides[getIndex(-1)].classList.add('prev');
-  for (let i = 2; i < total - 1; i++) slides[getIndex(i)].classList.add('hidden');
-}
-
-setInterval(() => { current = getIndex(1); update(); }, 3000);
-
-
 /* ── HAMBURGER MENU ── */
 document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.querySelector(".hamburger");
@@ -185,6 +165,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+/* ── SLIDER ── */
+const track = document.getElementById('sliderTrack');
+if (track) {
+  const companies = [
+    { logo: 'work-logos/747.png' },
+    { logo: 'work-logos/ball-smart.png' },
+    { logo: 'work-logos/barber.png' },
+    { logo: 'work-logos/ball.png' },
+    { logo: 'work-logos/brid.png' },
+    { logo: 'work-logos/ehs.png' },
+    { logo: 'work-logos/muslsa.png' },
+    { logo: 'work-logos/pakenhamfc.png' },
+    { logo: 'work-logos/plus.png' },
+    { logo: 'work-logos/sting.png' },
+  ];
+
+  [...companies, ...companies].forEach(c => {
+    const pill = document.createElement('div');
+    pill.className = 'logo-pill';
+    pill.innerHTML = `<img src="${c.logo}" alt="" class="logo-img" onerror="this.style.display='none'">`;
+    track.appendChild(pill);
+  });
+}
+
 /* ── LOADING SCREEN ── */
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -231,33 +236,5 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       observer.observe(counter);
     }
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.getElementById('sliderTrack');
-  if (!track) return;
-
-  const companies = [
-    { logo: 'work-logos/747.png' },
-    { logo: 'work-logos/ball-smart.png' },
-    { logo: 'work-logos/barber.png' },
-    { logo: 'work-logos/ball.png' },
-    { logo: 'work-logos/brid.png' },
-    { logo: 'work-logos/ehs.png' },
-    { logo: 'work-logos/muslsa.png' },
-    { logo: 'work-logos/pakenhamfc.png' },
-    { logo: 'work-logos/plus.png' },
-    { logo: 'work-logos/sting.png' },
-  ];
-
-  [...companies, ...companies].forEach(c => {
-    const pill = document.createElement('div');
-    pill.className = 'logo-pill';
-    pill.innerHTML = `
-      <img src="${c.logo}" alt="" class="logo-img" onerror="this.style.display='none'">
-    `;
-    track.appendChild(pill);
   });
 });
