@@ -1116,7 +1116,7 @@ label {
 }
 
 .pricing-card.featured .price {
-  color: #aaa;
+  color: #4f4f4f;
 }
 
 .pricing-card.featured .price span {
@@ -1143,6 +1143,15 @@ label {
   font-size: 15px;
   text-decoration: none;
   transition: background 0.25s, transform 0.2s;
+}
+
+ul{
+  color: #4f4f4f;
+  font-weight: bold;
+}
+
+#main-dots{
+  color: rgb(255, 255, 255);
 }
 
 /* --- Badges --- */
