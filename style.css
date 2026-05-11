@@ -211,22 +211,53 @@ label {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 60px;
+
   background: #111;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   padding: 0 20px;
+
   z-index: 2000;
+}
+
+/* LEFT SIDE */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* CENTER */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-center h3 {
   color: #fff;
-  margin-left: 70px;
   font-size: 18px;
   font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+}
 
+/* RIGHT SIDE */
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 /* ================= END OF NAVBAR ================= */
 
@@ -247,9 +278,17 @@ label {
   transition: 0.3s;
 }
 
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 /* ================= END OF HAMBURGER ================= */
 
 
@@ -258,14 +297,20 @@ label {
   position: fixed;
   top: 60px;
   left: 0;
+
   width: 220px;
+
   background: #111;
+
   display: none;
   flex-direction: column;
+
   opacity: 0;
   visibility: hidden;
+
   transform: translateX(-10px);
   transition: all 0.25s ease;
+
   z-index: 3000;
 }
 
@@ -273,6 +318,7 @@ label {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
+
   display: flex;
 }
 
@@ -287,13 +333,6 @@ label {
 .dropdown-menu a:hover {
   background: #7a5cff;
   padding-left: 20px;
-}
-.nav-right{
-  margin-left: 19px;
-  width: 100px;
-  height: 100px;
-  object-fit: cover; 
-  margin-bottom: 7px;
 }
 /* ================= END OF DROPDOWN ================= */
 
