@@ -219,44 +219,59 @@ label {
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  padding: 0 20px;
+  padding: 0 16px;
 
   z-index: 2000;
+
+  transform: translateY(0);
+  transition: transform 0.3s ease;
 }
 
-/* LEFT SIDE */
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+/* LEFT */
 .nav-left {
+  flex: 1;
   display: flex;
   align-items: center;
 }
 
 /* CENTER */
 .nav-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
 }
 
 .nav-center h3 {
   color: #fff;
-  font-size: 18px;
+  font-size: clamp(0.6rem, 3vw, 1rem);
   font-weight: 500;
   margin: 0;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
-/* RIGHT SIDE */
+/* RIGHT */
 .nav-right {
-  margin-left: auto;
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 
 /* LOGO */
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
 }
 /* ================= END OF NAVBAR ================= */
@@ -334,6 +349,7 @@ label {
   background: #7a5cff;
   padding-left: 20px;
 }
+
 /* ================= END OF DROPDOWN ================= */
 
 
