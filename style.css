@@ -223,9 +223,10 @@ label {
 
 .nav-center h3 {
   color: #fff;
-  margin: 0;
+  margin-left: 70px;
   font-size: 18px;
   font-weight: 500;
+
 }
 /* ================= END OF NAVBAR ================= */
 
@@ -286,6 +287,13 @@ label {
 .dropdown-menu a:hover {
   background: #7a5cff;
   padding-left: 20px;
+}
+.nav-right{
+  margin-left: 19px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover; 
+  margin-bottom: 7px;
 }
 /* ================= END OF DROPDOWN ================= */
 
