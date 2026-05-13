@@ -785,26 +785,19 @@ label {
 
 .review-item {
   width: 100% !important;
-
   display: flex;
   flex-direction: column;
-
   position: relative;
   overflow: hidden;
-
   border-radius: 14px;
   cursor: pointer;
-
   border: 1px solid #ebebeb;
   background: #fff;
-
   height: 66px;
-
   transition:
     height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.2s ease,
     border-color 0.2s ease;
-
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
@@ -812,63 +805,45 @@ label {
 .review-item:hover,
 .review-item.open {
   height: auto;
-
   border-color: #ddd;
-
   box-shadow: 0 8px 28px rgba(0,0,0,0.08);
 }
 
 /* TOP BAR */
 .stars-col {
   width: 100%;
-
   display: flex;
   flex-direction: row;
-
   justify-content: space-between;
   align-items: center;
-
   padding: 14px 20px;
-
   border-bottom: 1px solid #f0f0f0;
-
   background: #fafafa;
-
   min-height: 66px;
-
   flex-shrink: 0;
 }
 
 /* STARS */
 .stars-vert {
   color: #f5a623;
-
   font-size: 15px;
-
   letter-spacing: 3px;
 }
 
 /* LABEL */
 .stars-col .label {
   font-size: 10px;
-
   color: #bbb;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
 }
 
 /* ARROW */
 .stars-col::after {
   content: "›";
-
   font-size: 22px;
-
   color: #ccc;
-
   transition: transform 0.3s ease;
-
   display: inline-block;
 }
 
@@ -881,21 +856,15 @@ label {
 /* CONTENT */
 .review-item .content {
   opacity: 0;
-
   max-height: 0;
-
   padding: 0 20px;
-
   overflow: hidden;
-
   transition:
     opacity 0.3s ease,
     max-height 0.5s ease,
     padding 0.3s ease;
-
   display: flex;
   flex-direction: column;
-
   gap: 8px;
 }
 
@@ -903,18 +872,14 @@ label {
 .review-item.open .content,
 .review-item:hover .content {
   opacity: 1;
-
-  max-height: 200vh;
-
+  max-height: 2000px;
   padding: 18px 20px;
 }
 
 /* INLINE STARS */
 .stars-inline {
   color: #f5a623;
-
   font-size: 14px;
-
   letter-spacing: 3px;
 }
 
@@ -922,13 +887,11 @@ label {
 .content h2,
 .content h3 {
   color: #555;
-
   font-size: 1rem;
 }
 
 .content p {
   color: #666;
-
   line-height: 1.6;
 }
 
@@ -945,19 +908,16 @@ label {
   /* STATS */
   .stats {
     grid-template-columns: repeat(3, 1fr);
-
     gap: 10px;
   }
 
   .stat-card {
     padding: 18px 10px;
-
     min-height: 140px;
   }
 
   .stat-card h4 {
     font-size: 0.7rem;
-
     letter-spacing: 0.03em;
   }
 
@@ -972,51 +932,37 @@ label {
   /* REVIEW CARD */
   .review-item {
     width: 100% !important;
-
     height: 66px;
-
     flex-direction: column;
-
     overflow: hidden;
   }
 
   /* DISABLE HOVER ON MOBILE */
   .review-item:hover {
     height: 66px;
-
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-
     border-color: #ebebeb;
   }
 
   .review-item:hover .content {
     opacity: 0;
-
     max-height: 0;
-
     padding: 0 20px;
   }
 
-  /* OPEN STATE */
-  .review-item.open,
-  .review-item.open:hover {
-    height: auto;
-
-    border-color: #ddd;
-
-    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  /* OPEN STATE - must come after hover rules */
+  .review-item.open {
+    height: auto !important;
+    border-color: #ddd !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08) !important;
   }
 
   /* TOP BAR */
   .stars-col {
     width: 100%;
-
     padding: 14px 20px;
-
     justify-content: space-between;
-
     align-items: center;
-
     min-height: 66px;
   }
 
@@ -1028,31 +974,24 @@ label {
   /* CONTENT */
   .review-item .content {
     opacity: 0;
-
     max-height: 0;
-
     overflow: hidden;
-
     padding: 0 20px;
-
     transition:
       opacity 0.3s ease,
       max-height 0.5s ease,
       padding 0.3s ease;
   }
 
-  /* OPEN CONTENT */
+  /* OPEN CONTENT - must come after hover override */
   .review-item.open .content,
   .review-item.open:hover .content {
-    opacity: 1;
-
-    max-height: 200vh;
-
-    padding: 18px 20px;
+    opacity: 1 !important;
+    max-height: 2000px !important;
+    padding: 18px 20px !important;
   }
 }
 /* ================= END OF REVIEW SECTION ================= */
-
 
 /* ================= COMPANY SLIDER ================= */
 .companies-block {
