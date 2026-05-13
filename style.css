@@ -779,10 +779,9 @@ label {
   margin: 0;
 }
 
-/* ── Review cards ── */
-/* ================= DESKTOP REVIEWS = MOBILE STYLE ================= */
-
-/* Replace your current desktop .review-item styles with this */
+/* ─────────────────────────────
+   REVIEW CARDS
+───────────────────────────── */
 
 .review-item {
   width: 100% !important;
@@ -802,7 +801,7 @@ label {
   height: 66px;
 
   transition:
-    height 0.5s cubic-bezier(0.4,0,0.2,1),
+    height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.2s ease,
     border-color 0.2s ease;
 
@@ -813,7 +812,6 @@ label {
 .review-item:hover,
 .review-item.open {
   height: auto;
-  min-height: 180px;
 
   border-color: #ddd;
 
@@ -832,7 +830,6 @@ label {
 
   padding: 14px 20px;
 
-  border-right: none;
   border-bottom: 1px solid #f0f0f0;
 
   background: #fafafa;
@@ -844,10 +841,8 @@ label {
 
 /* STARS */
 .stars-vert {
-  writing-mode: horizontal-tb;
-  transform: none;
-
   color: #f5a623;
+
   font-size: 15px;
 
   letter-spacing: 3px;
@@ -855,15 +850,12 @@ label {
 
 /* LABEL */
 .stars-col .label {
-  writing-mode: horizontal-tb;
-  transform: none;
-
-  margin-top: 0;
-
   font-size: 10px;
+
   color: #bbb;
 
   letter-spacing: 0.1em;
+
   text-transform: uppercase;
 }
 
@@ -872,6 +864,7 @@ label {
   content: "›";
 
   font-size: 22px;
+
   color: #ccc;
 
   transition: transform 0.3s ease;
@@ -879,6 +872,7 @@ label {
   display: inline-block;
 }
 
+/* ROTATE ARROW */
 .review-item.open .stars-col::after,
 .review-item:hover .stars-col::after {
   transform: rotate(90deg);
@@ -895,11 +889,9 @@ label {
   overflow: hidden;
 
   transition:
-    opacity 0.3s ease 0.1s,
-    max-height 0.4s ease,
+    opacity 0.3s ease,
+    max-height 0.5s ease,
     padding 0.3s ease;
-
-  transform: none !important;
 
   display: flex;
   flex-direction: column;
@@ -912,113 +904,150 @@ label {
 .review-item:hover .content {
   opacity: 1;
 
-  max-height: 300px;
+  max-height: 200vh;
 
   padding: 18px 20px;
 }
 
+/* INLINE STARS */
 .stars-inline {
   color: #f5a623;
+
   font-size: 14px;
+
   letter-spacing: 3px;
 }
 
-.content h2, h3{
+/* CONTENT TEXT */
+.content h2,
+.content h3 {
   color: #555;
+
   font-size: 1rem;
 }
 
-/* ── Mobile ── */
+.content p {
+  color: #666;
+
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────
+   MOBILE
+───────────────────────────── */
+
 @media (max-width: 800px) {
+
   .section {
     padding: 60px 16px;
   }
 
+  /* STATS */
   .stats {
     grid-template-columns: repeat(3, 1fr);
+
     gap: 10px;
   }
 
   .stat-card {
-    padding: 18px 10px; /* was 22px 16px */
+    padding: 18px 10px;
+
     min-height: 140px;
   }
 
   .stat-card h4 {
     font-size: 0.7rem;
-    letter-spacing: 0.03em; /* was 0.07em — tight spacing was causing overflow */
-  }
 
+    letter-spacing: 0.03em;
+  }
 
   .stat-card p {
     font-size: 0.72rem;
   }
 
   .stat-number {
-    font-size: 1.8rem; /* was 2.2rem */
+    font-size: 1.8rem;
   }
 
+  /* REVIEW CARD */
   .review-item {
     width: 100% !important;
-    flex-direction: column;
+
     height: 66px;
-    transition: height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
+
+    flex-direction: column;
+
+    overflow: hidden;
   }
 
-  .review-item.open {
+  /* DISABLE HOVER ON MOBILE */
+  .review-item:hover {
+    height: 66px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+    border-color: #ebebeb;
+  }
+
+  .review-item:hover .content {
+    opacity: 0;
+
+    max-height: 0;
+
+    padding: 0 20px;
+  }
+
+  /* OPEN STATE */
+  .review-item.open,
+  .review-item.open:hover {
     height: auto;
-    min-height: 180px;
+
+    border-color: #ddd;
+
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
   }
 
+  /* TOP BAR */
   .stars-col {
     width: 100%;
-    flex-direction: row;
-    border-right: none;
-    border-bottom: 1px solid #f0f0f0;
+
     padding: 14px 20px;
+
     justify-content: space-between;
+
     align-items: center;
+
     min-height: 66px;
-    flex-shrink: 0;
   }
 
-  .stars-vert {
-    writing-mode: horizontal-tb;
-    transform: none;
-    letter-spacing: 3px;
-  }
-
-  .stars-col .label {
-    writing-mode: horizontal-tb;
-    transform: none;
-    margin-top: 0;
-    font-size: 10px;
-  }
-
-  .stars-col::after {
-    content: "›";
-    font-size: 22px;
-    color: #ccc;
-    transition: transform 0.3s ease;
-    display: inline-block;
-  }
-
+  /* ROTATE ARROW */
   .review-item.open .stars-col::after {
     transform: rotate(90deg);
   }
 
+  /* CONTENT */
   .review-item .content {
     opacity: 0;
+
     max-height: 0;
-    padding: 0 20px;
+
     overflow: hidden;
-    transition: opacity 0.3s ease 0.1s, max-height 0.4s ease, padding 0.3s ease;
-    transform: none !important;
+
+    padding: 0 20px;
+
+    transition:
+      opacity 0.3s ease,
+      max-height 0.5s ease,
+      padding 0.3s ease;
   }
 
-  .review-item.open .content {
+  /* OPEN CONTENT */
+  .review-item.open .content,
+  .review-item.open:hover .content {
     opacity: 1;
-    max-height: 300px;
+
+    max-height: 200vh;
+
     padding: 18px 20px;
   }
 }
